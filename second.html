@@ -1,0 +1,2537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xtreative Market </title>
+     <link rel="icon" type="image/png" href="/images/logo.png" />
+    <meta
+      name="description"
+      content="Discover authentic handmade African arts and crafts from Rwanda and Uganda. Support local artisans with unique traditional items including Agaseke baskets, Imigongo art, and more."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* styles.css - Orange, Black & White Theme */
+      :root {
+        /* Color Scheme */
+        --primary: #ff6b00; /* Vibrant Orange */
+        --primary-light: #ff8c42;
+        --primary-dark: #e05a00;
+        --secondary: #000000; /* Black */
+        --secondary-light: #333333;
+        --accent: #ff3d00; /* Darker Orange */
+        --dark: #212121;
+        --light: #ffffff;
+        --gray: #757575;
+        --light-gray: #eeeeee;
+        --white: #ffffff;
+        --success: #4caf50;
+        --warning: #ffc107;
+        --gold: #ffd700;
+
+        /* Shadows */
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 5px 20px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+        /* Border Radius */
+        --border-radius: 12px;
+        --border-radius-large: 20px;
+
+        /* Transitions */
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+     body {
+  background: url('/images/logo.png') no-repeat center center/cover;
+  margin: 0;
+  padding-top: 80px; /* Adjust based on header height */
+}
+
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Loading Animation */
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid var(--light-gray);
+        border-top: 4px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Header Styles */
+      /* Add to your CSS file */
+      /* Country Flags in Navbar */
+      .country-flags {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+
+      .country-flag.uganda {
+        background: linear-gradient(
+          to bottom,
+          #ffd100,
+          #ffd100 33%,
+          #000 33%,
+          #000 66%,
+          #ff0000 66%
+        );
+        color: #000;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .country-flag.rwanda {
+        background: linear-gradient(
+          to bottom,
+          #20603d,
+          #20603d 50%,
+          #fad201 50%,
+          #fad201 75%,
+          #00a1de 75%
+        );
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      /* Remove cart icon from nav-right */
+      .nav-right {
+        gap: 0; /* Remove the gap since we only have menu button now */
+      }
+
+      /* Adjust mobile menu styles */
+      @media (max-width: 968px) {
+        .country-flags {
+          display: none; /* Hide flags on mobile */
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem;
+        }
+
+        .nav-links li {
+          width: 100%;
+        }
+
+        .nav-links a {
+          padding: 0.8rem 0;
+          display: block;
+        }
+      }
+      header {
+  background: transparent;
+  color: var(--dark);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: none;
+  transition: var(--transition);
+  border-bottom: none;
+}
+
+      .header-scrolled {
+        padding: 0.5rem 0;
+        box-shadow: var(--shadow-medium);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 40px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links li {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .search-box {
+        position: relative;
+        display: none;
+      }
+
+      .search-input {
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--light-gray);
+        border-radius: 25px;
+        width: 200px;
+        transition: var(--transition);
+      }
+
+      .search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        width: 250px;
+      }
+
+      .cart-icon {
+        background: var(--primary);
+        color: white;
+        padding: 0.6rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        position: relative;
+        font-size: 1.1rem;
+      }
+
+      .cart-icon:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--accent);
+        color: white;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: bold;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 107, 0, 0.9),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        opacity: 0.95;
+        line-height: 1.7;
+        animation: fadeInUp 1s ease-out 0.4s both;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+
+      .cta-button {
+        background: var(--primary);
+        color: white;
+        padding: 1.2rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(255, 107, 0, 0.4);
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .cta-button.secondary:hover {
+        background: white;
+        color: var(--primary);
+        box-shadow: var(--shadow-medium);
+      }
+
+      /* Trust Indicators */
+      .trust-indicators {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 3rem;
+        color: rgba(255, 255, 255, 0.9);
+        animation: fadeInUp 1s ease-out 0.8s both;
+      }
+
+      .trust-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .trust-item i {
+        font-size: 1.5rem;
+        color: var(--gold);
+      }
+
+      /* Featured Products */
+      .featured {
+        padding: 6rem 0;
+        background: var(--light);
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-badge {
+        display: inline-block;
+        background: var(--primary-light);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-weight: 800;
+        position: relative;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: var(--border-radius-large);
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        transition: var(--transition);
+        cursor: pointer;
+        border: 1px solid var(--light-gray);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-heavy);
+        border-color: var(--primary-light);
+      }
+
+      .product-image {
+        height: 280px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+
+      .product-badges {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 2;
+      }
+
+      .authentic-badge {
+        background: var(--success);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .product-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-card:hover .product-overlay {
+        opacity: 1;
+      }
+
+      .quick-actions {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .quick-action {
+        background: white;
+        color: var(--dark);
+        padding: 0.8rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        font-size: 1.1rem;
+      }
+
+      .quick-action:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .product-info {
+        padding: 2rem;
+      }
+
+      .product-category {
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--dark);
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .product-info p {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .product-price {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .vendor-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .vendor-details {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .vendor-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .vendor-name {
+        font-size: 0.9rem;
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      .country-flag {
+        padding: 0.4rem 0.8rem;
+        background: var(--secondary);
+        color: white;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .stars {
+        color: var(--gold);
+      }
+
+      .rating-text {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      /* Categories */
+      .categories {
+        padding: 6rem 0;
+        background: white;
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem;
+      }
+
+      .category-card {
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+        border-radius: var(--border-radius-large);
+        background: white;
+        color: var(--dark);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 2px solid var(--light-gray);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .category-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 107, 0, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .category-card:hover::before {
+        left: 100%;
+      }
+
+      .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-medium);
+        border-color: var(--primary);
+      }
+
+      .category-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        transition: var(--transition);
+      }
+
+      .category-card:hover .category-icon {
+        transform: scale(1.1);
+        color: var(--primary-dark);
+      }
+
+      .category-card h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .category-count {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      /* About Section */
+      .about {
+        padding: 6rem 0;
+        background: var(--light);
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 2rem;
+        color: var(--dark);
+        font-weight: 800;
+        line-height: 1.3;
+      }
+
+      .about-text p {
+        color: var(--gray);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .stat {
+        text-align: center;
+        background: white;
+        padding: 2rem 1.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-light);
+        transition: var(--transition);
+      }
+
+      .stat:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .stat-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--gray);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .about-image {
+        border-radius: var(--border-radius-large);
+        overflow: hidden;
+        box-shadow: var(--shadow-heavy);
+        position: relative;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+      }
+
+      .play-button:hover {
+        background: var(--primary);
+        color: white;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 6rem 0;
+        background: var(--secondary);
+        color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2.5rem;
+        border-radius: var(--border-radius);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .testimonial-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .testimonial-role {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      /* Newsletter */
+      .newsletter {
+        padding: 4rem 0;
+        background: var(--primary);
+        color: white;
+        text-align: center;
+      }
+
+      .newsletter h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .newsletter p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .newsletter-form {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+      }
+
+      .newsletter-btn {
+        background: var(--secondary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .newsletter-btn:hover {
+        background: var(--secondary-light);
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--secondary);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-brand {
+        max-width: 350px;
+      }
+
+      .footer-brand .logo {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-section h3 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .footer-section p {
+        color: #aaa;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .footer-section a {
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.8rem;
+        transition: var(--transition);
+        font-size: 0.95rem;
+      }
+
+      .footer-section a:hover {
+        color: var(--primary);
+        padding-left: 5px;
+      }
+
+ .social-links a {
+  margin-right: 1.5rem; /* Increased spacing between icons */
+  text-decoration: none;
+}
+
+.social-links a i {
+  font-size: 1.5rem;
+  color: rgb(255, 119, 0);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover i {
+  color: rgb(255, 119, 0);
+  transform: scale(1.2);
+}
+
+
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Cart Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 0;
+        border-radius: var(--border-radius-large);
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: fadeInUp 0.3s ease-out;
+        box-shadow: var(--shadow-heavy);
+      }
+
+      .modal-header {
+        padding: 2rem 2rem 1rem;
+        border-bottom: 1px solid var(--light-gray);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .close {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--gray);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+      }
+
+      .close:hover {
+        background: var(--light-gray);
+        color: var(--primary);
+      }
+
+      .modal-body {
+        padding: 1rem 2rem 2rem;
+      }
+
+      .cart-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--light-gray);
+        align-items: center;
+      }
+
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+
+      .cart-item-image {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--border-radius);
+        flex-shrink: 0;
+      }
+
+      .cart-item-details {
+        flex: 1;
+      }
+
+      .cart-item-name {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .cart-item-country {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-bottom: 0.5rem;
+      }
+
+      .cart-item-price {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+
+      .cart-item-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quantity-btn {
+        background: var(--light-gray);
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .quantity-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .quantity {
+        min-width: 30px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .remove-btn {
+        background: transparent;
+        color: var(--gray);
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+
+      .remove-btn:hover {
+        color: var(--accent);
+        background: rgba(231, 76, 60, 0.1);
+      }
+
+      .cart-empty {
+        text-align: center;
+        color: var(--gray);
+        padding: 3rem 2rem;
+      }
+
+      .cart-empty i {
+        font-size: 4rem;
+        color: var(--light-gray);
+        margin-bottom: 1rem;
+      }
+
+      .cart-summary {
+        background: var(--light);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        margin-top: 1.5rem;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .summary-total {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark);
+        border-top: 1px solid var(--light-gray);
+        padding-top: 1rem;
+        margin-top: 1rem;
+      }
+
+      .checkout-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1.2rem;
+        width: 100%;
+        border-radius: var(--border-radius);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .checkout-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .checkout-btn:disabled {
+        background: var(--gray);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        z-index: 100;
+      }
+
+      .scroll-to-top:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .scroll-to-top.show {
+        display: flex;
+      }
+
+      /* Contact Section */
+      #contact .featured {
+        background: white;
+      }
+
+      #contact .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      #contact h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      #contact .social-links {
+        margin-top: 2rem;
+      }
+
+      #contact form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      #contact form input,
+      #contact form textarea {
+        padding: 1rem;
+        border: 1px solid var(--light-gray);
+        border-radius: var(--border-radius);
+      }
+
+      #contact form textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 968px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .search-box {
+          display: none;
+        }
+
+        .hero {
+          height: 80vh;
+          min-height: 500px;
+          background-attachment: scroll;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .trust-indicators {
+          flex-wrap: wrap;
+          gap: 2rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .modal-content {
+          margin: 10% auto;
+          width: 95%;
+        }
+
+        .cart-item {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+
+        .cart-item-details {
+          text-align: center;
+        }
+
+        #contact .about-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Loading states */
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      .btn-loading {
+        position: relative;
+        color: transparent;
+      }
+
+      .btn-loading::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -10px;
+        border: 2px solid transparent;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      /* Success/Error states */
+      .success-message {
+        background: var(--success);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: var(--border-radius);
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+
+      .error-message {
+        background: var(--accent);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: var(--border-radius);
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--light-gray);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+      }
+
+      /* New Styles for Header and Hero Section */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      .xt-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 90px;
+      }
+      .xt-nav-left {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      .xt-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #ff6b00;
+        text-decoration: none;
+      }
+      .xt-logo img {
+        height: 40px;
+        width: auto;
+      }
+      .xt-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+      .xt-nav-links li {
+        display: flex;
+        align-items: center;
+      }
+      .xt-nav-links a {
+        color: #212121;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+      .xt-nav-links a:hover {
+        color: #ff6b00;
+      }
+      .country-flags {
+        display: flex;
+        gap: 0.5rem;
+        margin-left: 1rem;
+      }
+      .country-flag.uganda {
+        background: linear-gradient(90deg, #ffcd00 50%, #000 50%);
+        color: #000;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .country-flag.rwanda {
+        background: linear-gradient(
+          180deg,
+          #20603d 33%,
+          #fad201 33% 66%,
+          #00a1de 66%
+        );
+        color: #fff;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .xt-download-btn {
+        background: #fff;
+        color: #ff6b00;
+        border: 2px solid #ff6b00;
+        padding: 0.7rem 2rem;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+      }
+      .xt-download-btn:hover {
+        background: #ff6b00;
+        color: #fff;
+      }
+      .xt-hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(180deg, #fff 60%, #ffecd2 100%);
+        min-height: 400px;
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+      .xt-hero-content {
+        flex: 1;
+        max-width: 600px;
+        padding-left: 40px;
+      }
+      .xt-hero-content h1 {
+        color: #ff6b00;
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+      }
+      .xt-hero-content p {
+        color: #757575;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      .xt-store-buttons {
+        display: flex;
+        gap: 2rem;
+      }
+      .xt-store-buttons img {
+        height: 50px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+      }
+      .xt-hero-image {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+     .xt-hero-image img {
+  max-width: 750px; 
+  /* width: 100%; */
+  border-radius: 20px;
+}
+
+      @media (max-width: 900px) {
+        .xt-hero {
+          flex-direction: column;
+          padding-top: 120px;
+        }
+        .xt-hero-content {
+          padding-left: 0;
+          max-width: 100%;
+          text-align: center;
+        }
+        .xt-hero-image {
+          margin-top: 2rem;
+        }
+        .xt-nav {
+          flex-direction: column;
+          height: auto;
+          gap: 1rem;
+        }
+        .xt-nav-left {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .xt-nav-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <header>
+    <nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem; background: white;">
+<!-- Left section -->
+<div style="display: flex; align-items: center; gap: 2.5rem;">
+  <!-- Logo -->
+  <img src="/images/logo.png" alt="Logo" style="height: 80px; width: auto;">
+
+  
+    <span>Xtreative Market</span>
+  </a>
+
+
+    <ul style="display: flex; list-style: none; gap: 2.5rem; align-items: center; margin: 0; padding: 0;">
+      <li><a href="#business" style="color: #4B5563; font-weight: 600; text-decoration: none;">Xtreative for Business</a></li>
+      <li><a href="#blog" style="color: #4B5563; font-weight: 600; text-decoration: none;">Our Blog</a></li>
+      <li><a href="#join" style="color: #4B5563; font-weight: 600; text-decoration: none;">Join Us</a></li>
+      <li><a href="#faqs" style="color: #4B5563; font-weight: 600; text-decoration: none;">FAQs</a></li>
+
+      <!-- Country Flags -->
+      <li style="display: flex; gap: 0.5rem;">
+        <!-- UGANDA -->
+        <span style="display: flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; background: #FFF7ED; color: #FF8C00; border: 2px solid #FF8C00;">
+          <img src="https://flagcdn.com/w40/ug.png" alt="Uganda Flag" style="width: 20px; height: auto; border-radius: 3px;">
+          UG
+        </span>
+
+        <!-- RWANDA (styled like Uganda) -->
+        <span style="display: flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; background: #FFF7ED; color: #FF8C00; border: 2px solid #FF8C00;">
+          <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda Flag" style="width: 20px; height: auto; border-radius: 3px;">
+          NBO
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Right section -->
+  <div>
+    <a href="#download" style="padding: 0.75rem 1.5rem; border: 2px solid #FF8C00; border-radius: 10px; color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      DOWNLOAD APP
+    </a>
+  </div>
+</nav>
+
+    </header>
+
+    <!-- Hero Section -->
+    <section class="xt-hero">
+      <div class="xt-hero-content">
+        <h1>Safety and Comfort<br />Redefined</h1>
+        <p>Enjoy safe rides with top rated drivers and affordable fares.</p>
+         <div class="download-buttons" style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
+            <a href="https://play.google.com/store/apps" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #000; color: white; padding: 1rem 1.5rem; border-radius: 12px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; border: 2px solid transparent; font-weight: bold; white-space: nowrap;">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                </svg>
+                Download on Google Play
+            </a>
+            <a href="https://apps.apple.com" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #000; color: white; padding: 1rem 1.5rem; border-radius: 12px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; border: 2px solid transparent; font-weight: bold; white-space: nowrap;">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
+                    <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+                </svg>
+                Download on App Store
+            </a>
+        </div>
+      </div>
+      <div class="xt-hero-image">
+        <img src="images/bettermockup.png" alt="Xtreative Market App Preview" />
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="featured">
+  <div class="container">
+    <div class="section-header" style="text-align: center;">
+      <h2 class="section-title" style="font-size: 2rem; font-weight: bold;">Shop by Category</h2>
+      <p class="section-subtitle" style="max-width: 600px; margin: 0 auto; font-size: 1rem; color: #555;">
+        Explore our carefully curated collection of authentic African crafts, each piece telling
+        a unique story of cultural heritage and artistic excellence.
+      </p>
+    </div>
+
+    <div class="product-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 2rem;">
+      <!-- Traditional Baskets -->
+      <div class="product-card" style="width: 260px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="/images/basket.jpg" alt="Traditional Baskets" style="width: 100%; height: 180px; object-fit: cover;">
+        <div style="padding: 16px;">
+          <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Traditional Baskets</h3>
+          <p style="font-size: 0.875rem; color: #555;">Agaseke baskets and woven treasures from Rwanda, symbolizing peace and unity</p>
+          <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">150+ items →</div>
+        </div>
+      </div>
+
+      <!-- Wood Carvings -->
+      <div class="product-card" style="width: 260px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="/images/carvings.jpg" alt="Wood Carvings" style="width: 100%; height: 180px; object-fit: cover;">
+        <div style="padding: 16px;">
+          <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Wood Carvings</h3>
+          <p style="font-size: 0.875rem; color: #555;">Hand-carved sculptures, masks, and decorative pieces from Ugandan artisans</p>
+          <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">120+ items →</div>
+        </div>
+      </div>
+
+      <!-- Textiles & Fabrics -->
+      <div class="product-card" style="width: 260px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="/images/Fabrics.jpg" alt="Textiles & Fabrics" style="width: 100%; height: 180px; object-fit: cover;">
+        <div style="padding: 16px;">
+          <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Textiles & Fabrics</h3>
+          <p style="font-size: 0.875rem; color: #555;">Vibrant traditional fabrics, clothing, and textile art from both countries</p>
+          <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">200+ items →</div>
+        </div>
+      </div>
+
+      <!-- Jewelry & Accessories -->
+      <div class="product-card" style="width: 260px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="/images/jewelry.jpg" alt="Jewelry & Accessories" style="width: 100%; height: 180px; object-fit: cover;">
+        <div style="padding: 16px;">
+          <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Jewelry & Accessories</h3>
+          <p style="font-size: 0.875rem; color: #555;">Handcrafted jewelry using local materials and traditional techniques</p>
+          <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">80+ items →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Categories Section -->
+<section id="categories" class="categories" aria-label="Product Categories">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Shop By Category</div>
+      <h2 class="section-title">Explore Our Collections</h2>
+      <p class="section-subtitle">
+        Browse through our diverse categories of authentic African handmade products.
+      </p>
+    </div>
+
+    <div class="category-grid">
+      <!-- Baskets & Sculptures Combined -->
+      <div class="category-card">
+        <div class="category-icon">
+          <span><i class="fas fa-mask"></i></span>
+        </div>
+        <h3>Baskets & Sculptures</h3>
+        <p class="category-description">
+          Handwoven baskets and carved wooden sculptures.
+        </p>
+      </div>
+
+      <!-- Traditional Art -->
+      <div class="category-card">
+        <div class="category-icon">
+          <span><i class="fas fa-paint-brush"></i></span>
+        </div>
+        <h3>Traditional Art</h3>
+        <p class="category-description">
+          Paintings and crafts inspired by African culture.
+        </p>
+      </div>
+
+      <!-- Jewelry -->
+      <div class="category-card">
+        <div class="category-icon">
+          <span><i class="fas fa-gem"></i></span>
+        </div>
+        <h3>Jewelry</h3>
+        <p class="category-description">
+          Bold, handcrafted pieces made with natural materials.
+        </p>
+      </div>
+
+      <!-- Textiles -->
+      <div class="category-card">
+        <div class="category-icon">
+          <span><i class="fas fa-tshirt"></i></span>
+        </div>
+        <h3>Textiles</h3>
+        <p class="category-description">
+          Colorful fabrics, wraps, and traditional prints.
+        </p>
+      </div>
+
+      <!-- Home Decor -->
+      <div class="category-card">
+        <div class="category-icon">
+          <span><i class="fas fa-home"></i></span>
+        </div>
+        <h3>Home Decor</h3>
+        <p class="category-description">
+          Artisan pieces to elevate your living space.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">Our Story</div>
+      <h2 class="section-title">Preserving African Heritage</h2>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Connecting Artisans With Global Markets</h2>
+        <p>
+          Xtreative Market was founded in 2020 with a mission to empower
+          talented African artisans by providing them with access to global
+          markets while preserving traditional craftsmanship.
+        </p>
+        <p>
+          We work directly with cooperatives and individual artisans across
+          Rwanda and Uganda, ensuring fair wages and sustainable practices.
+          Each product in our collection tells a unique story of cultural
+          heritage and skilled craftsmanship.
+        </p>
+        <p>
+          By purchasing from Xtreative Market, you're not just acquiring a
+          beautiful handmade item - you're supporting livelihoods,
+          preserving traditions, and celebrating African creativity.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Artisans Supported</div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon">
+              <i class="fas fa-globe-africa"></i>
+            </div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Countries</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Replaces Image -->
+      <div class="about-image" style="position: relative;">
+        <video
+          src="video.mp4"
+          poster="/images/Decor Set of 4 African Plates, Wall Plate, Boho Wall Decor, African Basket, African Plates, Weaving Baskets, , Wall Hanging, Handmade Gift - Etsy.jpeg"  
+          width="100%"
+          height="auto"
+          controls
+          style="border-radius: 8px; object-fit: cover;"
+        >
+          Your browser does not support the video tag.
+        </video>
+        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Customer Stories</div>
+          <h2 class="section-title">What Our Customers Say</h2>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-avatar">SM</div>
+            <p class="testimonial-text">
+              "The Agaseke basket I purchased is even more beautiful in person.
+              Knowing it was handmade by Rwandan artisans makes it extra special
+              in my home."
+            </p>
+            <div class="testimonial-author">Sarah M.</div>
+            <div class="testimonial-role">Customer from USA</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-avatar">TJ</div>
+            <p class="testimonial-text">
+              "Excellent quality and service! The bark cloth painting is a
+              stunning conversation piece in my office. Will definitely order
+              again."
+            </p>
+            <div class="testimonial-author">Thomas J.</div>
+            <div class="testimonial-role">Customer from Germany</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-avatar">AL</div>
+            <p class="testimonial-text">
+              "I appreciate the care taken in packaging and shipping. The beaded
+              jewelry arrived safely and is absolutely gorgeous. Thank you!"
+            </p>
+            <div class="testimonial-author">Amina L.</div>
+            <div class="testimonial-role">Customer from Kenya</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container">
+        <h3>Join Our Creative Community</h3>
+        <p>
+          Subscribe to our newsletter for exclusive offers, new arrivals, and
+          stories behind the crafts.
+        </p>
+        <form class="newsletter-form">
+          <input
+            type="email"
+            class="newsletter-input"
+            placeholder="Your email address"
+            required
+          />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="featured" style="background: white">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Get In Touch</div>
+          <h2 class="section-title">Contact Us</h2>
+          <p class="section-subtitle">
+            Have questions or need assistance? We're here to help!
+          </p>
+        </div>
+        <div
+          class="about-content"
+          style="grid-template-columns: 1fr 1fr; gap: 4rem"
+        >
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem">
+              Our Information
+            </h3>
+            <div style="display: grid; gap: 1.5rem">
+              <div style="display: flex; gap: 1rem; align-items: flex-start">
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="
+                    color: var(--primary);
+                    font-size: 1.2rem;
+                    margin-top: 0.2rem;
+                  "
+                ></i>
+                <div>
+                  <h4 style="font-weight: 600; margin-bottom: 0.3rem">
+                    Address
+                  </h4>
+                  <p style="color: var(--gray)">KG 123 St, Kigali, Rwanda</p>
+                  <p style="color: var(--gray)">Kampala,Uganda</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start">
+                <i
+                  class="fas fa-envelope"
+                  style="
+                    color: var(--primary);
+                    font-size: 1.2rem;
+                    margin-top: 0.2rem;
+                  "
+                ></i>
+                <div>
+                  <h4 style="font-weight: 600; margin-bottom: 0.3rem">Email</h4>
+                  <p style="color: var(--gray)">info@xtreativemarket.com</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start">
+                <i
+                  class="fas fa-phone-alt"
+                  style="
+                    color: var(--primary);
+                    font-size: 1.2rem;
+                    margin-top: 0.2rem;
+                  "
+                ></i>
+                <div>
+                  <h4 style="font-weight: 600; margin-bottom: 0.3rem">Phone</h4>
+                  <p style="color: var(--gray)">+250 788 123 456</p>
+                </div>
+              </div>
+            </div>
+           <div style="margin-top: 2rem">
+  <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem">
+    Follow Us
+  </h3>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f" style="color: orange;"></i></a>
+    <a href="#"><i class="fab fa-instagram" style="color: orange;"></i></a>
+    <a href="#"><i class="fab fa-twitter" style="color: orange;"></i></a>
+    <a href="#"><i class="fab fa-pinterest" style="color: orange;"></i></a>
+  </div>
+</div>
+
+          </div>
+          <div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem">
+              Send Us a Message
+            </h3>
+            <form style="display: grid; gap: 1rem">
+              <div
+                style="display: grid; gap: 1rem; grid-template-columns: 1fr 1fr"
+              >
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  style="
+                    padding: 1rem;
+                    border: 1px solid var(--light-gray);
+                    border-radius: var(--border-radius);
+                  "
+                />
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  style="
+                    padding: 1rem;
+                    border: 1px solid var(--light-gray);
+                    border-radius: var(--border-radius);
+                  "
+                />
+              </div>
+              <input
+                type="text"
+                placeholder="Subject"
+                style="
+                  padding: 1rem;
+                  border: 1px solid var(--light-gray);
+                  border-radius: var(--border-radius);
+                "
+              />
+              <textarea
+                placeholder="Your Message"
+                rows="5"
+                style="
+                  padding: 1rem;
+                  border: 1px solid var(--light-gray);
+                  border-radius: var(--border-radius);
+                "
+              ></textarea>
+              <button
+                type="submit"
+                class="cta-button"
+                style="width: auto; display: inline-block"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div
+        class="container"
+        style="display: flex; align-items: center; gap: 1rem"
+      >
+        <img src="/images/logo.png" alt="Xtreative Market Logo" style="height: 40px" />
+        <span style="font-weight: 700">Xtreative Market &copy; 2025</span>
+      </div>
+    </footer>
+
+        
+      
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Loading animation
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loadingOverlay").style.opacity = "0";
+          setTimeout(function () {
+            document.getElementById("loadingOverlay").style.display = "none";
+          }, 500);
+        }, 1000);
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+        }
+      });
+
+      // Scroll to top button
+      const scrollToTopBtn = document.getElementById("scrollToTop");
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      });
+
+      scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Cart functionality
+      let cart = [];
+
+      function openCart() {
+        document.getElementById("cartModal").style.display = "block";
+        updateCartDisplay();
+      }
+
+      function closeCart() {
+        document.getElementById("cartModal").style.display = "none";
+      }
+
+      function addToCart(name, price, country, image) {
+        // Check if item already exists in cart
+        const existingItem = cart.find((item) => item.name === name);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            name: name,
+            price: price,
+            country: country,
+            image: image,
+            quantity: 1,
+          });
+        }
+
+        updateCartCount();
+        updateCartDisplay();
+
+        // Show success message
+        const successMsg = document.createElement("div");
+        successMsg.className = "success-message";
+        successMsg.innerHTML = `<i class="fas fa-check-circle"></i> ${name} added to cart!`;
+        document.body.appendChild(successMsg);
+
+        setTimeout(() => {
+          successMsg.style.opacity = "0";
+          setTimeout(() => {
+            document.body.removeChild(successMsg);
+          }, 500);
+        }, 3000);
+      }
+
+      function updateCartCount() {
+        const count = cart.reduce((total, item) => total + item.quantity, 0);
+        document.getElementById("cart-count").textContent = count;
+      }
+
+      function updateCartDisplay() {
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartEmpty = document.getElementById("cart-empty");
+        const cartSummary = document.getElementById("cart-summary");
+
+        if (cart.length === 0) {
+          cartItemsContainer.style.display = "none";
+          cartEmpty.style.display = "block";
+          cartSummary.style.display = "none";
+          document.getElementById("cart-items-count").textContent = "0";
+        } else {
+          cartEmpty.style.display = "none";
+          cartItemsContainer.style.display = "block";
+          cartSummary.style.display = "block";
+
+          // Update cart items count
+          const totalItems = cart.reduce(
+            (total, item) => total + item.quantity,
+            0
+          );
+          document.getElementById("cart-items-count").textContent = totalItems;
+
+          // Clear existing items
+          cartItemsContainer.innerHTML = "";
+
+          // Add items to cart
+          cart.forEach((item, index) => {
+            const cartItem = document.createElement("div");
+            cartItem.className = "cart-item";
+            cartItem.innerHTML = `
+                        <div class="cart-item-image" style="background-image: url('${
+                          item.image
+                        }')"></div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-country">${item.country}</div>
+                            <div class="cart-item-price">UGX ${item.price.toLocaleString()}</div>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+            cartItemsContainer.appendChild(cartItem);
+          });
+
+          // Update totals
+          const subtotal = cart.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+          );
+          document.getElementById(
+            "cart-subtotal"
+          ).textContent = `UGX ${subtotal.toLocaleString()}`;
+          document.getElementById(
+            "cart-total"
+          ).textContent = `UGX ${subtotal.toLocaleString()}`;
+
+          // Enable checkout button
+          document.getElementById("checkout-btn").disabled = false;
+        }
+      }
+
+      function updateQuantity(index, change) {
+        cart[index].quantity += change;
+
+        // Remove item if quantity reaches 0
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        }
+
+        updateCartCount();
+        updateCartDisplay();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartCount();
+        updateCartDisplay();
+      }
+
+      // Close modal when clicking outside
+      window.addEventListener("click", function (event) {
+        const modal = document.getElementById("cartModal");
+        if (event.target === modal) {
+          closeCart();
+        }
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      });
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          if (window.innerWidth <= 968) {
+            navLinks.style.display = "none";
+          }
+        });
+      });
+
+      // Responsive adjustments
+      function handleResponsive() {
+        if (window.innerWidth > 968) {
+          navLinks.style.display = "flex";
+        } else {
+          navLinks.style.display = "none";
+        }
+      }
+
+      window.addEventListener("resize", handleResponsive);
+      handleResponsive();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Newsletter form submission
+      const newsletterForm = document.querySelector(".newsletter-form");
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const emailInput = this.querySelector('input[type="email"]');
+
+          // Simulate submission
+          this.querySelector("button").classList.add("btn-loading");
+
+          setTimeout(() => {
+            this.querySelector("button").classList.remove("btn-loading");
+
+            // Show success message
+            const successMsg = document.createElement("div");
+            successMsg.className = "success-message";
+            successMsg.innerHTML = `<i class="fas fa-check-circle"></i> Thank you for subscribing!`;
+            this.parentNode.insertBefore(successMsg, this.nextSibling);
+
+            // Clear input
+            emailInput.value = "";
+
+            setTimeout(() => {
+              successMsg.style.opacity = "0";
+              setTimeout(() => {
+                successMsg.parentNode.removeChild(successMsg);
+              }, 500);
+            }, 3000);
+          }, 1500);
+        });
+      }
+
+      // Contact form submission
+      const contactForm = document.querySelector("#contact form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simulate submission
+          const submitBtn = this.querySelector('button[type="submit"]');
+          submitBtn.classList.add("btn-loading");
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.classList.remove("btn-loading");
+            submitBtn.disabled = false;
+
+            // Show success message
+            const successMsg = document.createElement("div");
+            successMsg.className = "success-message";
+            successMsg.innerHTML = `<i class="fas fa-check-circle"></i> Your message has been sent! We'll get back to you soon.`;
+            this.parentNode.insertBefore(successMsg, this.nextSibling);
+
+            // Clear form
+            this.reset();
+
+            setTimeout(() => {
+              successMsg.style.opacity = "0";
+              setTimeout(() => {
+                successMsg.parentNode.removeChild(successMsg);
+              }, 500);
+            }, 5000);
+          }, 2000);
+        });
+      }
+
+      // Play button functionality
+      const playButton = document.querySelector(".play-button");
+      if (playButton) {
+        playButton.addEventListener("click", function () {
+          // In a real implementation, this would open a video modal
+          alert("Video about our artisans would play here");
+        });
+      }
+    </script>
+  </body>
+</html>
