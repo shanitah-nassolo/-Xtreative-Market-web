@@ -324,8 +324,9 @@
             135deg,
             rgba(255, 107, 0, 0.9),
             rgba(0, 0, 0, 0.8)
-          ),
-          url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80");
+          );
+          
+         
         height: 100vh;
         min-height: 600px;
         display: flex;
@@ -336,8 +337,8 @@
         background-position: center;
         background-attachment: fixed;
         position: relative;
-        overflow: hidden;
-      }
+       
+      } */
 
       .hero::before {
         content: "";
@@ -354,10 +355,10 @@
         margin: 0 auto;
         padding: 0 20px;
         position: relative;
-        z-index: 2;
+        z-index: 8;
       }
 
-      .hero-badge {
+       .hero-badge {
         display: inline-block;
         background: rgba(255, 255, 255, 0.2);
         padding: 0.5rem 1.5rem;
@@ -367,7 +368,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         animation: fadeInUp 1s ease-out;
-      }
+      } 
 
       .hero-content h1 {
         font-size: clamp(2.5rem, 5vw, 4rem);
@@ -375,9 +376,9 @@
         font-weight: 800;
         line-height: 1.2;
         animation: fadeInUp 1s ease-out 0.2s both;
-      }
+      } */
 
-      .hero-content p {
+       .hero-content p {
         font-size: 1.3rem;
         margin-bottom: 3rem;
         opacity: 0.95;
@@ -386,7 +387,7 @@
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
-      }
+      } 
 
       .hero-buttons {
         display: flex;
