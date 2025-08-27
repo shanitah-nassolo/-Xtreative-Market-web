@@ -1,0 +1,358 @@
+.app-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 1.75rem;
+    background: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.app-btn:hover {
+    background: #F9622c;
+    transform: translateY(-2px);
+}
+
+.app-btn i {
+    font-size: 1.8rem;
+}
+
+.app-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.app-btn-text small {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 3px;
+}
+
+.app-btn-text strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.4rem 1rem;
+            background: white;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-section img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-section a {
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #4B5563;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .flag-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .flag-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #FFF7ED;
+            color: #F9622c;
+            border: 2px solid #F9622c;
+        }
+
+        .flag-badge img {
+            width: 16px;
+            height: auto;
+            border-radius: 3px;
+        }
+
+        .download-btn {
+            padding: 0.5rem 1rem;
+            background-color: #F9622c;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section with Video Background */
+        .xt-hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(19, 1, 1);
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        /* App Store Buttons */
+        .app-buttons {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.75rem;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+
+        .app-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .app-btn i {
+            font-size: 1.8rem;
+        }
+
+        .app-btn-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .app-btn-text small {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 3px;
+        }
+
+        .app-btn-text strong {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .flag-container {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+            }
+
+            .app-btn {
+                min-width: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links li:not(:first-child):not(:last-child) {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .xt-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust for contrast */
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 2rem;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.app-btn:hover {
+  transform: scale(1.05);
+}
+
+.app-btn i {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.app-btn-text small {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.app-btn-text strong {
+  font-size: 1rem;
+}
