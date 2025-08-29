@@ -144,215 +144,116 @@
         }
 
         /* Hero Section with Video Background */
-        .xt-hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: rgb(19, 1, 1);
-            overflow: hidden;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-        }
-
-        /* App Store Buttons */
-        .app-buttons {
-            display: flex;
-            gap: 1.8rem;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .app-btn {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.75rem;
-            background: #000;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            min-width: 180px;
-        }
-
-        .app-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        .app-btn i {
-            font-size: 1.8rem;
-        }
-
-        .app-btn-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .app-btn-text small {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            margin-bottom: 3px;
-        }
-
-        .app-btn-text strong {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .flag-container {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .app-buttons {
-                flex-direction: column;
-            }
-
-            .app-btn {
-                min-width: 220px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links li:not(:first-child):not(:last-child) {
-                display: none;
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-
-        .xt-hero {
+       .xt-hero {
   position: relative;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: #fff;
 }
 
-.hero-video {
+/* Image Slider */
+.hero-slider {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%; height: 100%;
+  opacity: 0;
+  animation: slideShow 25s infinite;
+}
+
+.hero-slide img.hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover;   /* fills screen completely */
+  object-position: center;
+  animation: zoomRotate 12s ease-in-out infinite;
+  transition: transform 1.5s ease;
 }
 
+/* Slide timing */
+.slide1 { animation-delay: 0s; }
+.slide2 { animation-delay: 5s; }
+.slide3 { animation-delay: 10s; }
+.slide4 { animation-delay: 15s; }
+.slide5 { animation-delay: 20s; }
+
+/* Overlay */
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust for contrast */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    rgba(233,114,46,0.5),
+    rgba(255,165,0,0.3),
+    rgba(255,200,100,0.4)
+  );
   z-index: 2;
 }
 
+/* Hero Content */
 .hero-content {
   position: relative;
   z-index: 3;
-  padding: 2rem;
+  text-align: center;
+  color: #fff;
+  padding: 0 15px;
 }
 
-.app-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
+.hero-content h1 {
+  font-size: 2.5rem; /* smaller headline */
+  margin-bottom: 20px;
+  animation: fadeDown 2s ease forwards;
 }
 
-.app-btn {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  color: #000;
-  padding: 0.75rem 1rem;
+.hero-content p {
+  margin-bottom: 50px; /* spacing from buttons */
+  font-size: 1.2rem;
+  animation: fadeUp 3s ease forwards;
+}
+
+.hero-content h1,
+.hero-content p {
+  background: rgba(255,140,0,0.4);
+  padding: 10px 20px;
   border-radius: 8px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+  backdrop-filter: blur(3px);
+  display: inline-block;
 }
 
-.app-btn:hover {
-  transform: scale(1.05);
+.animate-btns {
+  animation: fadeUp 3.5s ease forwards;
 }
 
-.app-btn i {
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
+/* Animations */
+@keyframes slideShow {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
-.app-btn-text small {
-  display: block;
-  font-size: 0.75rem;
-  line-height: 1;
+@keyframes zoomRotate {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(0.5deg); }
+  50% { transform: scale(1.08) rotate(-0.5deg); }
+  75% { transform: scale(1.05) rotate(0.5deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
-.app-btn-text strong {
-  font-size: 1rem;
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
