@@ -13,10 +13,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="styles/styles.css" />
   <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/second.css">
 
 </head>
 
 <body>
+  <style>
+  body {
+    font-family: Calibri, Arial, sans-serif !important;
+  }
+</style>
+
   <!-- Loading Overlay -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-spinner"></div>
@@ -68,7 +75,7 @@
         font-size: 0.75rem;
         font-weight: 600;
         background: #FFF7ED;
-        color: #FF8C00;
+        color: #F9622c;
         border: 2px solid #FF8C00;
       ">
             <img src="https://flagcdn.com/w40/ug.png" alt="Uganda Flag"
@@ -85,12 +92,12 @@
         font-size: 0.75rem;
         font-weight: 600;
         background: #FFF7ED;
-        color: #FF8C00;
-        border: 2px solid #FF8C00;
+        color: #F9622c;
+        border: 2px solid #F9622c;
       ">
             <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda Flag"
               style="width: 16px; height: auto; border-radius: 3px;">
-            NBO
+         RW
           </span>
         </li>
       </ul>
@@ -99,7 +106,7 @@
       <div>
         <a href="#download" style="
       padding: 0.5rem 1rem;
-      background-color: #FF8C00;
+      background-color: #F9622c;
       border-radius: 8px;
       color: #fff;
       text-decoration: none;
@@ -113,380 +120,119 @@
     </nav>
 
   </header>
-  <section id="hero" class="xt-hero" style="
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 86vh;
-  padding: 3rem 4rem;
-  background-image: url('/images/');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
-  overflow: hidden;
-  color: #fff;
-">
-    <!-- Orange Gradient Highlight -->
-    <div style="
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(to top, rgba(255, 140, 0, 0.7), transparent);
-    z-index: 0;
-  "></div>
+ <!-- Hero Section with Video Background -->
+   <section id="hero" class="xt-hero">
+  <!-- Background Video -->
+  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="/video.mp4" type="video/mp4">
+    <source src="/video.mp4" type="video/webm">
+    <!-- Fallback for unsupported browsers -->
+    Your browser does not support the video tag.
+  </video>
 
-    <!-- Left: Content -->
-    <div class="xt-hero-content" style="
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    max-width: 600px;
-    color: #fff;
-  ">
-      <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 1.5rem;">
-        <h1 style="font-size: 3rem; line-height: 1.2; margin: 0;">
-          Bringing East African culture<br />Close to You
-        </h1>
-        <p style="font-size: 1.2rem; margin: 0;">
-          Explore the wide range of modern African art at your convenience.
-        </p>
-      </div>
+  <!-- Overlay for readability -->
+  <div class="hero-overlay"></div>
 
-      <!-- Download Buttons -->
-      <div class="download-buttons" style="
-      display: flex;
-      gap: 1rem;
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: 2rem;
-    ">
-        <!-- Google Play Button -->
-        <a href="https://play.google.com/store/apps" target="_blank" style="
-        display: inline-flex;
-        align-items: center;
-        gap: 0.7rem;
-        background: #000;
-        color: white;
-        padding: 1rem 1.6rem;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        white-space: nowrap;
-      ">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="30 336.7 120 129.2" style="width: 28px; height: 28px;">
-            <path fill="#FFD400" d="M48.5 336.7c-1.1.6-2.1 1.4-2.9 2.3l59.5 59.5 17.6-10.2-74.2-51.6z" />
-            <path fill="#FF3333" d="M45.6 338.9c-1.7 1.9-2.7 4.4-2.7 7v102.1c0 2.6 1 5.1 2.7 7l59.5-59.5-59.5-59.6z" />
-            <path fill="#48FF48" d="M105.1 398.4l-59.5 59.5c.8.9 1.8 1.7 2.9 2.3l74.2-51.6-17.6-10.2z" />
-            <path fill="#3BCCFF" d="M164.6 401.3l-31.5-18.3-17.6 10.2 17.6 10.2 31.5-2.1z" />
-          </svg>
-          Google Play
-        </a>
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1 >Bringing the East African culture<br />Close to You</h1>
+   <p >Explore the wide range of modern African art at your convenience.</p>
 
 
-        <!-- App Store Button -->
-        <a href="https://apps.apple.com" target="_blank" style="
-        display: inline-flex;
-        align-items: center;
-        gap: 0.8rem;
-        background: #000;
-        color: white;
-        padding: 1rem 1.6rem;
-        border-radius: 12px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        white-space: nowrap;
-      ">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
-            <path
-              d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-          </svg>
-          App Store
-        </a>
-      </div>
+    <!-- App Store Buttons -->
+    <div class="app-buttons">
+      <a href="https://play.google.com/store" class="app-btn" target="_blank" rel="noopener">
+        <i class="fab fa-google-play"></i>
+        <div class="app-btn-text">
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+      <a href="https://apps.apple.com" class="app-btn" target="_blank" rel="noopener">
+        <i class="fab fa-apple"></i>
+        <div class="app-btn-text">
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
     </div>
+  </div>
+</section>
 
+ 
 
+</div>
+</section>
 
-    <!-- Right: Image -->
-    <div class="xt-hero-image" style="
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  ">
-      <img src="/images/mockp222.png" alt="Mobility App Preview" style="max-width: 100%; height: auto;">
-    </div>
-  </section>
   <!-- About Us Section -->
-
-  <section class="about-us " id="about">
-    <div class="container">
-      <!-- About Us - Text Left, Image Right -->
-      <div class="section-row text-left-image-right">
-        <div class="content-left">
-          <h2>About Us</h2>
-          <p>We are a vibrant and dynamic group of individuals who are passionate about the arts and creative crafts.
-            The community is well invested in with the aim of nurturing a space where innovation and creativity thrive,
-            and where new and exciting ideas are born. Our community of creatives provides an environment where
-            collaboration, experimentation, and risk-taking are encouraged, leading to a culture of innovation and
-            ingenuity. Our support of the community has fostered the development of talented artisans who have the
-            potential to create groundbreaking work that creates a significant impact in the creative industries by
-            promoting cultural diversity and inclusivity.</p>
-        </div>
-        <div class="image-right">
-          <div class="image-gallery">
-            <div class="gallery-container">
-              <img src="https://i.pinimg.com/736x/5f/15/8b/5f158bb6dd69c1321838b812f55309f3.jpg"
-                alt="African artisans working" class="gallery-image active">
-              <img src="https://i.pinimg.com/1200x/83/e0/7f/83e07f4caa7342e790325634df5ba2a7.jpg"
-                alt="Traditional African crafts" class="gallery-image">
-              <img src="https://i.pinimg.com/736x/d1/65/2c/d1652c636744f2e429a4bd32319a548a.jpg"
-                alt="African pottery making" class="gallery-image">
-              <img src="https://i.pinimg.com/1200x/f2/a3/1a/f2a31a62b92fd3c8e5480f54473cf4d5.jpg"
-                alt="Community workshop" class="gallery-image">
-            </div>
-            <div class="gallery-dots">
-              <span class="dot active" data-index="0"></span>
-              <span class="dot" data-index="1"></span>
-              <span class="dot" data-index="2"></span>
-              <span class="dot" data-index="3"></span>
-            </div>
+  <section id="about" class="about-us" style="padding: 5rem 0; background: #f8f9fa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        
+        <!-- Left: Image -->
+        <div style="position: relative;">
+          <img src="/images/bettermockup.png" 
+               alt="African artisan working on traditional crafts" 
+               
+                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <div style="
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: #F9622c;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(249, 98, 44, 0.3);
+          ">
+            <div style="font-size: 1.5rem; line-height: 1;">2025</div>
+            <div style="font-size: 0.75rem; opacity: 0.9;">Founded</div>
           </div>
+        </div>
+
+        <!-- Right: Content -->
+ <div>
+          <div style="
+            display: inline-block;
+            background: #FFF7ED;
+            color: #F9622c;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 2px solid #F9622c;
+          ">
+            About Xtreative Market
+          </div>
+          
+        <p>
+          At Xtreative Market, we celebrate the beauty of African craftsmanship by connecting 
+        local artisans with global markets. Our platform highlights authentic handmade pieces 
+        from Rwanda and Uganda, fostering cultural pride while supporting sustainable livelihoods.
+        </p>
+          
+       
+     
+
+        
+            
+           
+              
+
+         
         </div>
       </div>
-
-      <!-- Our Mission - Image Left, Text Right -->
-      <div class="section-row image-left-text-right">
-        <div class="image-left">
-          <div class="image-gallery">
-            <div class="gallery-container">
-              <img src="https://i.pinimg.com/736x/81/89/62/818962dc4f1e2786773065516bf1b826.jpg" alt="African textiles"
-                class="gallery-image active">
-              <img src="https://i.pinimg.com/736x/3b/b2/7d/3bb27df0a882f58f923ff4f36c1ccd8b.jpg" alt="Handwoven baskets"
-                class="gallery-image">
-              <img src="https://i.pinimg.com/1200x/bf/34/c8/bf34c88ce7400f5d30684eac9d4b1285.jpg"
-                alt="Traditional jewelry" class="gallery-image">
-              <img src="https://i.pinimg.com/1200x/6c/a5/72/6ca572c1035f610a9e7c6b355679a334.jpg" alt="African art"
-                class="gallery-image">
-            </div>
-            <div class="gallery-dots">
-              <span class="dot active" data-index="0"></span>
-              <span class="dot" data-index="1"></span>
-              <span class="dot" data-index="2"></span>
-              <span class="dot" data-index="3"></span>
-            </div>
-          </div>
-        </div>
-        <div class="content-right">
-          <h2>Our Mission</h2>
-          <p>To showcase the creativity and talent of African artisans to a global audience. We strive to bridge
-            cultures and foster appreciation for African art, fashion, and craftsmanship.</p>
-        </div>
-
-        <div class="goals-section">
-          <div class="goals-content">
-            <h2>Our Goals</h2>
-            <div class="goals-list">
-              <div class="goal-item">
-                <p>Showcase African Creativity</p>
-
-              </div>
-              <div class="goal-item">
-                <p>Empower Local Artisans</p>
-
-              </div>
-              <div class="goal-item">
-                <p>Foster Economic Growth</p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- What We Offer - Text Left, Image Right -->
-      <div class="section-row text-left-image-right">
-        <div class="content-left">
-          <h2>What We Offer</h2>
-          <p>Our company offers a wide range of African crafts, fashion, and accessories that celebrate the beauty,
-            diversity, and cultural richness of the African continent. We curate a collection of authentic and
-            high-quality products created by talented artisans and designers from various African regions. Our offerings
-            include intricately handcrafted jewelry, vibrant textiles and clothing, traditional masks and sculptures,
-            and unique home decor items inspired by African artistry.
-            At our company, we prioritize ethical sourcing and sustainable practices. We work directly with local
-            artisans, fostering fair trade relationships and ensuring that they receive fair compensation for their
-            exceptional craftsmanship. By supporting us, customers not only acquire exquisite pieces but also contribute
-            to the preservation of traditional skills and the economic empowerment of African communities.</p>
-        </div>
-        <div class="image-right">
-          <div class="image-gallery">
-            <div class="gallery-container">
-              <img src="https://i.pinimg.com/1200x/eb/92/d2/eb92d2e39250f88159534a5edcd3e38d.jpg" alt="African jewelry"
-                class="gallery-image active">
-              <img src="https://i.pinimg.com/736x/09/27/0a/09270ad9a95c4fbac85fa5aa5a006443.jpg"
-                alt="Traditional clothing" class="gallery-image">
-              <img src="https://i.pinimg.com/1200x/85/f5/24/85f52464326c9fa1691ee33b98c2373e.jpg" alt="African masks"
-                class="gallery-image">
-              <img src="https://i.pinimg.com/1200x/a2/f5/ca/a2f5ca4bea442111b0f8c1ab5855d986.jpg" alt="Home decor"
-                class="gallery-image">
-            </div>
-            <div class="gallery-dots">
-              <span class="dot active" data-index="0"></span>
-              <span class="dot" data-index="1"></span>
-              <span class="dot" data-index="2"></span>
-              <span class="dot" data-index="3"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
     </div>
-
-    <script>
-      document.querySelectorAll('.image-slider').forEach(slider => {
-        const images = slider.querySelectorAll('img');
-        let index = 0;
-        images[index].classList.add('active');
-
-        setInterval(() => {
-          images[index].classList.remove('active');
-          index = (index + 1) % images.length;
-          images[index].classList.add('active');
-        }, 3000); // Change image every 3 seconds
-      });
-      class ImageGallery {
-        constructor(galleryElement) {
-          this.gallery = galleryElement;
-          this.images = galleryElement.querySelectorAll('.gallery-image');
-          this.dots = galleryElement.querySelectorAll('.dot');
-          this.currentIndex = 0;
-          this.autoPlayInterval = null;
-
-          this.init();
-        }
-
-        init() {
-          // Add click events to dots
-          this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-              this.goToSlide(index);
-            });
-          });
-
-          // Start autoplay
-          this.startAutoPlay();
-
-          // Pause on hover
-          this.gallery.addEventListener('mouseenter', () => {
-            this.stopAutoPlay();
-          });
-
-          this.gallery.addEventListener('mouseleave', () => {
-            this.startAutoPlay();
-          });
-        }
-
-        goToSlide(index) {
-          // Remove active class from current image and dot
-          this.images[this.currentIndex].classList.remove('active');
-          this.dots[this.currentIndex].classList.remove('active');
-
-          // Add transition classes
-          if (index > this.currentIndex) {
-            this.images[this.currentIndex].classList.add('prev');
-            this.images[index].classList.add('next');
-          } else {
-            this.images[this.currentIndex].classList.add('next');
-            this.images[index].classList.add('prev');
-          }
-
-          // Clean up transition classes after animation
-          setTimeout(() => {
-            this.images.forEach(img => {
-              img.classList.remove('prev', 'next');
-            });
-          }, 50);
-
-          // Update current index
-          this.currentIndex = index;
-
-          // Add active class to new image and dot
-          setTimeout(() => {
-            this.images[this.currentIndex].classList.add('active');
-            this.dots[this.currentIndex].classList.add('active');
-          }, 100);
-        }
-
-        nextSlide() {
-          const nextIndex = (this.currentIndex + 1) % this.images.length;
-          this.goToSlide(nextIndex);
-        }
-
-        startAutoPlay() {
-          this.autoPlayInterval = setInterval(() => {
-            this.nextSlide();
-          }, 4000);
-        }
-
-        stopAutoPlay() {
-          if (this.autoPlayInterval) {
-            clearInterval(this.autoPlayInterval);
-            this.autoPlayInterval = null;
-          }
-        }
-      }
-
-      // Initialize all galleries when DOM is loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        const galleries = document.querySelectorAll('.image-gallery');
-        galleries.forEach(gallery => {
-          new ImageGallery(gallery);
-        });
-      });
-
-      // Add scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-          }
-        });
-      }, observerOptions);
-
-      document.addEventListener('DOMContentLoaded', () => {
-        const animatedElements = document.querySelectorAll('.section-row, .goal-card');
-        animatedElements.forEach(el => {
-          el.style.animationPlayState = 'paused';
-          observer.observe(el);
-        });
-      });
-
-    </script>
   </section>
 
+  <!-- Featured Products -->
 
-    <!-- Featured Products -->
+
+
+
+  <!-- Featured Products -->
   <section id="products" class="featured">
     <div class="container">
       <div class="section-header" style="text-align: center;">
@@ -508,7 +254,7 @@
             <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Traditional Baskets</h3>
             <p style="font-size: 0.875rem; color: #555;">Agaseke baskets and woven treasures from Rwanda, symbolizing
               peace and unity</p>
-            <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">150+ items →</div>
+            <div style="margin-top: 12px; color: #F9622c; font-weight: bold;">150+ items →</div>
           </div>
         </div>
 
@@ -520,7 +266,7 @@
             <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Wood Carvings</h3>
             <p style="font-size: 0.875rem; color: #555;">Hand-carved sculptures, masks, and decorative pieces from
               Ugandan artisans</p>
-            <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">120+ items →</div>
+            <div style="margin-top: 12px; color: #F9622c; font-weight: bold;">120+ items →</div>
           </div>
         </div>
 
@@ -533,7 +279,7 @@
             <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Textiles & Fabrics</h3>
             <p style="font-size: 0.875rem; color: #555;">Vibrant traditional fabrics, clothing, and textile art from
               both countries</p>
-            <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">200+ items →</div>
+            <div style="margin-top: 12px; color: #F9622C; font-weight: bold;">200+ items →</div>
           </div>
         </div>
 
@@ -546,7 +292,7 @@
             <h3 style="font-size: 1rem; font-weight: bold; margin: 0 0 8px;">Jewelry & Accessories</h3>
             <p style="font-size: 0.875rem; color: #555;">Handcrafted jewelry using local materials and traditional
               techniques</p>
-            <div style="margin-top: 12px; color: #e65c00; font-weight: bold;">80+ items →</div>
+            <div style="margin-top: 12px; color: #F9622C; font-weight: bold;">80+ items →</div>
           </div>
         </div>
       </div>
@@ -554,22 +300,23 @@
   </section>
 
 
-  <!-- Featured Products -->
+  <!-- Categories Section -->
   <section id="categories" class="categories" aria-label="Product Categories">
     <div class="container">
       <div class="section-header">
+        <div class="section-badge">Shop By Category</div>
         <h2 class="section-title" style="font-size: 2rem; font-weight: bold;">Explore Our Collections</h2>
+
         <p class="section-subtitle">
           Browse through our diverse categories of authentic African handmade products.
         </p>
       </div>
 
       <div class="category-grid">
-        <!-- Category Cards -->
-        <div class="category-card" data-category="baskets">
-          <div class="category-image">
-            <img src="https://i.pinimg.com/736x/d2/19/80/d21980e301d402cf96120d8c4b06f392.jpg"
-              alt="Baskets & Sculptures">
+        <!-- Baskets & Sculptures Combined -->
+        <div class="category-card">
+          <div class="category-icon">
+            <span><i class="fas fa-mask"></i></span>
           </div>
           <h3>Baskets & Sculptures</h3>
           <p class="category-description">
@@ -577,19 +324,21 @@
           </p>
         </div>
 
-        <div class="category-card" data-category="art">
-          <div class="category-image">
-            <img src="https://i.pinimg.com/736x/90/b5/57/90b557c37a5a8945bc6d2cd4399d2e26.jpg" alt="Traditional Art">
+        <!-- Traditional Art -->
+        <div class="category-card">
+          <div class="category-icon">
+            <span><i class="fas fa-paint-brush"></i></span>
           </div>
-          <h3> Art Pieces</h3>
+          <h3>Traditional Art</h3>
           <p class="category-description">
             Paintings and crafts inspired by African culture.
           </p>
         </div>
 
-        <div class="category-card" data-category="jewelry">
-          <div class="category-image">
-            <img src="https://i.pinimg.com/736x/68/6d/2b/686d2bc943a84d0019b8a3cb0574bb76.jpg" alt="Jewelry">
+        <!-- Jewelry -->
+        <div class="category-card">
+          <div class="category-icon">
+            <span><i class="fas fa-gem"></i></span>
           </div>
           <h3>Jewelry</h3>
           <p class="category-description">
@@ -597,250 +346,30 @@
           </p>
         </div>
 
-        <div class="category-card" data-category="textiles">
-          <div class="category-image">
-            <img src="https://i.pinimg.com/1200x/eb/92/d2/eb92d2e39250f88159534a5edcd3e38d.jpg" alt="Textiles">
+        <!-- Textiles -->
+        <div class="category-card">
+          <div class="category-icon">
+            <span><i class="fas fa-tshirt"></i></span>
           </div>
-          <h3>Textiles & Fashion </h3>
+          <h3>Textiles</h3>
           <p class="category-description">
-            Colorful fabrics, wraps, Shoes and Clothes.
+            Colorful fabrics, wraps, and traditional prints.
           </p>
         </div>
 
-        <div class="category-card" data-category="home">
-          <div class="category-image">
-            <img src="" alt="Home Decor">
+        <!-- Home Decor -->
+        <div class="category-card">
+          <div class="category-icon">
+            <span><i class="fas fa-home"></i></span>
           </div>
-          <h3>Home Decoration</h3>
+          <h3>Home Decor</h3>
           <p class="category-description">
             Artisan pieces to elevate your living space.
           </p>
         </div>
       </div>
     </div>
-
-    <!-- Modal for Product Gallery -->
-    <div id="category-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modal-title"></h2>
-        <div id="modal-gallery" class="modal-gallery">
-          <!-- Product images with prices will be injected here -->
-        </div>
-      </div>
-    </div>
   </section>
-
-  <style>
-    /* Grid */
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* Card */
-    .category-card {
-      cursor: pointer;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.2s ease;
-      padding: 1rem;
-      /* standard padding */
-      height: 350px;
-      /* uniform height */
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .category-card:hover {
-      transform: scale(1.05);
-    }
-
-    .category-card img {
-      width: 100%;
-      height: 180px;
-      /* fixed image height */
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 0.8rem;
-    }
-
-    /* Text */
-    .category-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .category-description {
-      font-size: 0.95rem;
-      flex-grow: 1;
-      color: #333;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 5% auto;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 900px;
-    }
-
-    .close {
-      float: right;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    /* Gallery inside modal */
-    /* Modal Gallery */
-    .modal-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      /* responsive grid */
-      gap: 1rem;
-      /* spacing between images */
-      margin-top: 1rem;
-    }
-
-    .modal-gallery div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0.5rem;
-      /* standard padding for all items */
-      background-color: #f9f9f9;
-      /* optional: makes items stand out */
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-
-    .modal-gallery img {
-      width: 100%;
-      height: 180px;
-      /* fixed height */
-      object-fit: cover;
-      /* ensures image covers the space without stretching */
-      border-radius: 6px;
-    }
-
-    .modal-gallery .price {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-      color: #333;
-    }
-  </style>
-
-  <script>
-    // Product data
-    const products = {
-      baskets: [
-        { img: 'https://i.pinimg.com/1200x/13/dc/86/13dc860799ecb53be324e0ad8bbce15b.jpg', price: '$25' },
-        { img: 'https://i.pinimg.com/736x/ca/4c/ee/ca4ceee18885436714070731497df63c.jpg', price: '$30' },
-        { img: 'https://i.pinimg.com/736x/61/ce/1c/61ce1c025c90619201cf9df61c7f4006.jpg', price: '$45' },
-        { img: 'https://i.pinimg.com/736x/dc/04/77/dc04774058cd9715292388a3d09a1621.jpg', price: '$20' },
-        { img: 'https://i.pinimg.com/1200x/5e/0d/78/5e0d785f63f645c8c4e0177b3e1ba67b.jpg', price: '$35' },
-        { img: 'https://i.pinimg.com/1200x/2d/5b/89/2d5b8999d2b8c34926084e2e3338c837.jpg', price: '$40' },
-        { img: 'https://i.pinimg.com/1200x/11/c2/dc/11c2dcc6a134dd46f9e40500170e8c1e.jpg', price: '$50' },
-        { img: 'https://i.pinimg.com/736x/e6/2b/90/e62b9036931735031fee7eee1c313a72.jpg', price: '$30' },
-        { img: 'https://i.pinimg.com/736x/75/ff/83/75ff83666afb3e4016ee3003885ec167.jpg', price: '$55' },
-
-
-      ],
-      art: [
-        { img: 'https://i.pinimg.com/736x/34/fd/08/34fd08efd7a4628f25755d354c0d8875.jpg', price: '$50' },
-        { img: 'https://i.pinimg.com/1200x/8a/2c/ac/8a2cac7bc6a105a0cb7bf5c5045ad6a4.jpg', price: '$60' },
-        { img: 'https://i.pinimg.com/736x/76/13/17/76131728a9b03a1d60566dc6a3b92672.jpg', price: '$40' },
-        { img: 'https://i.pinimg.com/736x/22/0d/7d/220d7dfbc151103320e43717743eb83f.jpg', price: '$70' },
-        { img: 'https://i.pinimg.com/736x/22/e3/9d/22e39dc5274be69742f424baa77b9666.jpg', price: '$80' },
-        { img: 'https://i.pinimg.com/1200x/c1/3f/a3/c13fa3757b661f1bd6c389831d95e39c.jpg', price: '$90' },
-        { img: 'https://i.pinimg.com/1200x/25/7a/f5/257af50d5bb5ec770b06e831c53b2fec.jpg', price: '$70' },
-        { img: 'https://i.pinimg.com/1200x/58/b8/80/58b88004ca09512772c7ec992bd34a8d.jpg', price: '$80' },
-        { img: 'https://i.pinimg.com/736x/41/e1/7c/41e17c253065b74052e6a54fa717811e.jpg', price: '$90' },
-        { img: 'https://i.pinimg.com/736x/2e/85/4f/2e854fcdca05fbaa8b91847e938dd33d.jpg', price: '$100' }
-      ],
-      jewelry: [
-        { img: 'https://i.pinimg.com/1200x/ea/9f/7a/ea9f7a3725efe1eeea79491c732df951.jpg', price: '$15' },
-        { img: 'https://i.pinimg.com/736x/de/2d/8a/de2d8a4da6e098ad5e23419238e2a83b.jpg', price: '$20' },
-        { img: 'https://i.pinimg.com/736x/66/fc/cc/66fccc1501a2e4b22e5e0e7542126de1.jpg', price: '$35' },
-        { img: 'https://i.pinimg.com/736x/58/ed/8c/58ed8c3b0dd786869d55dc9b3b45245a.jpg', price: '$50' },
-        { img: 'https://i.pinimg.com/736x/fc/cf/80/fccf805ad615f8209c885052d0395f2e.jpg', price: '$60' },
-        { img: 'https://i.pinimg.com/1200x/c1/20/02/c120027e9afa1eda8f36fd8bf3382f3e.jpg', price: '$70' },
-        { img: 'https://i.pinimg.com/736x/cb/f2/b0/cbf2b05dc050b019163fff7d962e65be.jpg', price: '$80' },
-        { img: 'https://i.pinimg.com/1200x/ba/e9/d2/bae9d27c79ad2887f3f7dcd00870d00c.jpg', price: '$90' },
-        { img: 'https://i.pinimg.com/1200x/0d/d8/ab/0dd8ab4ec2f403c79fbbff8ddffc3710.jpg', price: '$100' },
-        { img: 'https://i.pinimg.com/736x/cb/f6/b9/cbf6b99492195e0effd8e1cabd77bdd3.jpg', price: '$110' }
-      ],
-      textiles: [
-        { img: 'https://i.pinimg.com/736x/af/74/a9/af74a93a38b8aaf22b77fd98607e510f.jpg', price: '$20' },
-        { img: 'https://i.pinimg.com/1200x/be/a6/b7/bea6b721741948cc7307ed7bb2343f8c.jpg', price: '$25' },
-        { img: 'https://i.pinimg.com/1200x/4b/55/d4/4b55d41645ccef5dcec42115930ea8df.jpg', price: '$30' },
-        { img: 'https://i.pinimg.com/736x/64/84/27/648427e402a185b9cd939119c9cf7a43.jpg', price: '$35' },
-        { img: 'https://i.pinimg.com/1200x/29/69/03/2969034b7811822ba10f1cdc834bda36.jpg', price: '$35' },
-        { img: 'https://i.pinimg.com/736x/c1/45/8a/c1458af816e6bb7836c42a5f6af8b31a.jpg', price: '$30' },
-        { img: 'https://i.pinimg.com/1200x/71/2e/67/712e6741b644f345bb068b97471ededb.jpg', price: '$25' },
-        { img: 'https://i.pinimg.com/1200x/24/2d/a7/242da743328b3766b1de4230f78f0ac9.jpg', price: '$25' },
-        { img: 'https://i.pinimg.com/1200x/84/27/b2/8427b266a602c0146eaf2e54df764c62.jpg', price: '$35' },
-        { img: 'https://i.pinimg.com/1200x/8b/21/f1/8b21f1d3cfa708fdb1d0f63faa2ffc7d.jpg', price: '$35' }
-        
-      ],
-      home: [
-        { img: 'images/home1.jpg', price: '$40' },
-        { img: 'images/home2.jpg', price: '$55' },
-        { img: 'images/home3.jpg', price: '$60' }
-      ]
-    };
-
-    const modal = document.getElementById('category-modal');
-    const modalGallery = document.getElementById('modal-gallery');
-    const modalTitle = document.getElementById('modal-title');
-    const closeModal = document.querySelector('.close');
-
-    document.querySelectorAll('.category-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const category = card.getAttribute('data-category');
-        modalTitle.textContent = card.querySelector('h3').textContent;
-        modalGallery.innerHTML = '';
-
-        products[category].forEach(product => {
-          const div = document.createElement('div');
-          div.innerHTML = `<img src="${product.img}" alt=""><div class="price">${product.price}</div>`;
-          modalGallery.appendChild(div);
-        });
-
-        modal.style.display = 'block';
-      });
-    });
-
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-
-    // Close modal when clicking outside
-    window.addEventListener('click', e => {
-      if (e.target == modal) modal.style.display = 'none';
-    });
-  </script>
-
 
   <!-- About Section -->
   <section id="heritage" class="about">
@@ -889,7 +418,7 @@
 
         <!-- Video Replaces Image -->
         <div class="about-image" style="position: relative;">
-          <video src="video.mp4"
+          <video src="/vid.mp4"
             poster="/images/Decor Set of 4 African Plates, Wall Plate, Boho Wall Decor, African Basket, African Plates, Weaving Baskets, , Wall Hanging, Handmade Gift - Etsy.jpeg"
             width="100%" height="auto" controls style="border-radius: 8px; object-fit: cover;">
             Your browser does not support the video tag.
@@ -945,207 +474,19 @@
   </section>
 
   <!-- Newsletter -->
-  <section class="join-community">
+  <section class="newsletter">
     <div class="container">
-      <h2>Join Our Creative Community</h2>
-      <p>Join Xtreative Market and become part of a vibrant community where creativity thrives. Discover unique crafts,
-        support local artisans, and gain exclusive access to special collections. Whether you’re a customer or vendor,
-        this is the perfect place to connect, grow, and celebrate innovation.!</p>
-
-      <div class="role-selection">
-        <!-- Customer Card -->
-        <div class="role-card customer-card">
-          <h3>Customer</h3>
-          <p>Explore a world of unique, high-quality crafts. Discover exclusive collections, support talented artisans,
-            and enjoy special offers while connecting with a community that celebrates creativity.</p>
-
-          <button class="role-btn" onclick="showAppDownload('customer')">
-            Join Us Now
-          </button>
-        </div>
-
-        <!-- Vendor Card -->
-        <div class="role-card vendor-card">
-          <h3>Vendor</h3>
-          <p>Become a vendor on Xtreative Market and take your craft to the next level. Showcase your creations to a
-            passionate community, reach new customers, and grow your brand with support, exposure, and opportunities to
-            collaborate with fellow artisans.</p>
-          <button class="role-btn" onclick="showAppDownload('vendor')">
-            Register Now
-          </button>
-        </div>
-      </div>
-
-      <!-- App Download Popup -->
-      <div id="app-download-popup" class="popup">
-        <div class="popup-content">
-          <span class="close-btn" onclick="closePopup()">&times;</span>
-          <h3 id="popup-title"></h3>
-          <p>Download our app to complete your registration:</p>
-          <a href="#" class="app-download-btn">Download App</a>
-        </div>
-      </div>
+      <h3>Join Our Creative Community</h3>
+      <p>
+        Subscribe to our newsletter for exclusive offers, new arrivals, and
+        stories behind the crafts.
+      </p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address" required />
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
     </div>
   </section>
-
-  <style>
-    /* Container & General Styles */
-    .join-community {
-      padding: 4rem 2rem;
-      background: #e98e3e;
-      text-align: center;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .join-community h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
-
-    .join-community p {
-      margin-bottom: 3rem;
-      color: #555;
-      font-size: 1.1rem;
-    }
-
-    /* Role Selection Cards */
-    .role-selection {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .role-card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 2rem;
-      width: 300px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-    }
-
-    .role-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .role-card h3 {
-      margin-bottom: 1rem;
-      color: #ff7f50;
-      font-size: 1.6rem;
-    }
-
-    .role-card p {
-      margin-bottom: 1rem;
-      color: #666;
-      font-size: 1rem;
-    }
-
-    .role-card ul {
-      list-style: disc inside;
-      margin-bottom: 1.5rem;
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    .role-btn {
-      padding: 0.8rem 1.5rem;
-      background: #ff7f50;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .role-btn:hover {
-      background: #ff5722;
-    }
-
-    /* Popup Styles */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .popup-content {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: center;
-      position: relative;
-      width: 300px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Single Download Button */
-    .app-download-btn {
-      text-decoration: none;
-      padding: 0.8rem 1.5rem;
-      background: #ff7f50;
-      color: #fff;
-      border-radius: 50px;
-      transition: background 0.3s ease, transform 0.2s ease;
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .app-download-btn:hover {
-      background: #ff5722;
-      transform: translateY(-2px);
-    }
-
-    /* Responsive Adjustments */
-    @media(max-width: 700px) {
-      .role-selection {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-
-  <script>
-    function showAppDownload(role) {
-      const popup = document.getElementById('app-download-popup');
-      const title = document.getElementById('popup-title');
-
-      title.textContent = role === 'customer'
-        ? 'Register as Customer'
-        : 'Register as Vendor';
-
-      popup.style.display = 'flex';
-    }
-
-    function closePopup() {
-      document.getElementById('app-download-popup').style.display = 'none';
-    }
-  </script>
-
 
   <!-- Contact Section -->
   <section id="contact" class="featured" style="background: white">
@@ -1207,13 +548,13 @@
             <div class="social-links">
 
               <a href=" https://www.instagram.com/xtreativemarket/"><i class="fab fa-instagram"
-                  style="color: orange;"></i></a>
-              <a href="https://x.com/Xtreativemarket"><i class="fab fa-twitter" style="color: orange;"></i></a>
+                  style="color: #F9622C;"></i></a>
+              <a href="https://x.com/Xtreativemarket"><i class="fab fa-twitter" style="color: #F9622C;"></i></a>
               <a href="https://www.youtube.com/@xtreativemarket"><i class="fab fa-youtube"
-                  style="color: orange;"></i></a>
-              <a href="https://www.tiktok.com/@xtreativemarket"><i class="fab fa-tiktok" style="color: orange;"></i></a>
+                  style="color: #F9622c;"></i></a>
+              <a href="https://www.tiktok.com/@xtreativemarket"><i class="fab fa-tiktok" style="color: #F9622c;"></i></a>
               <a href="https://www.linkedin.com/company/xtreative-market/"><i class="fab fa-linkedin"
-                  style="color: orange;"></i></a>
+                  style="color: #F9622C;"></i></a>
             </div>
           </div>
 

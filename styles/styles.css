@@ -1,12 +1,72 @@
- /* styles.css - Orange, Black & White Theme */
+.app-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.app-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.app-btn i {
+    font-size: 1.5rem;
+}
+
+.app-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.app-btn-text small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-bottom: 2px;
+}
+
+.app-btn-text strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* styles.css - Orange, Black & White Theme */
       :root {
         /* Color Scheme */
-        --primary: #ff6b00; /* Vibrant Orange */
-        --primary-light: #ff8c42;
-        --primary-dark: #e05a00;
+        --primary: #f9622c; /* Vibrant Orange */
+        --primary-light: #f9622c;
+        --primary-dark: #f9622c;
         --secondary: #000000; /* Black */
         --secondary-light: #333333;
-        --accent: #ff3d00; /* Darker Orange */
+        --accent: #f9622c; /* Darker Orange */
         --dark: #212121;
         --light: #ffffff;
         --gray: #757575;
@@ -44,7 +104,7 @@
 
 
       .container {
-        max-width: 1200px;
+        max-width: 50px;
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -1059,12 +1119,12 @@
 
 .social-links a i {
   font-size: 1.5rem;
-  color: rgb(255, 119, 0);
+  color: #f9622c;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover i {
-  color: rgb(255, 119, 0);
+  color: #f9622c;
   transform: scale(1.2);
 }
 
@@ -1582,7 +1642,7 @@
         gap: 0.7rem;
         font-size: 2rem;
         font-weight: 800;
-        color: #ff6b00;
+        color: #f9622c;
         text-decoration: none;
       }
       .xt-logo img {
@@ -1607,7 +1667,7 @@
         transition: color 0.3s;
       }
       .xt-nav-links a:hover {
-        color: #ff6b00;
+        color: #f9622c;
       }
       .country-flags {
         display: flex;
@@ -1615,7 +1675,7 @@
         margin-left: 1rem;
       }
       .country-flag.uganda {
-        background: linear-gradient(90deg, #ffcd00 50%, #000 50%);
+        background: linear-gradient(90deg, #f9622c 50%, #000 50%);
         color: #000;
         padding: 0.3rem 0.8rem;
         border-radius: 15px;
@@ -1637,8 +1697,8 @@
       }
       .xt-download-btn {
         background: #fff;
-        color: #ff6b00;
-        border: 2px solid #ff6b00;
+        color: #f9622c;
+        border: 2px solid #f9622c;
         padding: 0.7rem 2rem;
         border-radius: 30px;
         font-weight: 700;
@@ -1647,7 +1707,7 @@
         transition: background 0.3s, color 0.3s;
       }
       .xt-download-btn:hover {
-        background: #ff6b00;
+        background: #f9622c;
         color: #fff;
       }
       .xt-hero {
