@@ -480,19 +480,133 @@
   </section>
 
   <!-- Newsletter -->
-  <section class="newsletter">
-    <div class="container">
-      <h3>Join Our Creative Community</h3>
-      <p>
-        Subscribe to our newsletter for exclusive offers, new arrivals, and
-        stories behind the crafts.
+ <!-- Registration Cards Section -->
+<!-- Styles for Button Hover -->
+<style>
+  /* Vendor & Customer Buttons */
+  #vendorBtn, #customerBtn {
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #vendorBtn:hover, #customerBtn:hover {
+    background-color: #F9622c; /* Orange */
+    color: white;
+  }
+
+  /* Optional: Popup form buttons hover */
+  #vendorForm button, #customerForm button {
+    transition: background-color 0.3s;
+  }
+
+  #vendorForm button:hover {
+    background-color: #F9622c;
+  }
+
+  #customerForm button:hover {
+    background-color: #F9622c;
+  }
+</style>
+
+<section class="registration-cards" style="padding: 5rem 0; background: #F9622c; text-align: center;">
+  <div class="container" style="max-width: 1000px; margin: 0 auto; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Join Our Creative Community</h3>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+      Be part of a vibrant community that celebrates creativity and craftsmanship!  
+      Whether you're a talented vendor showcasing your unique products or a passionate customer exploring exclusive creations, joining our team means connecting, growing, and making an impact in the world of arts and crafts.
+    </p>
+
+    <!-- Vendor Card -->
+    <div class="card vendor-card" style="background: #ed764b; color: white; border-radius: 10px; padding: 2rem; width: 300px; cursor: pointer; transition: transform 0.3s;">
+      <h3 style="margin-bottom: 1rem;">Register as Vendor</h3>
+      <p style="margin-bottom: 1.5rem;">
+        Join our platform to showcase your crafts, reach more customers, and manage your business easily.  
+        Complete your registration and download our app to start selling today!
       </p>
-      <form class="newsletter-form">
-        <input type="email" class="newsletter-input" placeholder="Your email address" required />
-        <button type="submit" class="newsletter-btn">Subscribe</button>
+      <button id="vendorBtn" style="padding: 0.7rem 1.2rem; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Register Now</button>
+    </div>
+
+    <!-- Customer Card -->
+    <div class="card customer-card" style="background:#ed764b; color: white; border-radius: 10px; padding: 2rem; width: 300px; cursor: pointer; transition: transform 0.3s;">
+      <h3 style="margin-bottom: 1rem;">Join as Customer</h3>
+      <p style="margin-bottom: 1.5rem;">
+        Explore unique crafts, get exclusive offers, and stay updated with the latest arrivals.  
+        Join our community and support creative vendors.
+      </p>
+      <button id="customerBtn" style="padding: 0.7rem 1.2rem; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Join Now</button>
+    </div>
+  </div>
+
+  <!-- Vendor Registration Popup -->
+  <div id="vendorFormPopup" style="display: none; position: fixed; top: 0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999; display: flex;">
+    <div style="background: white; padding: 2rem; border-radius: 10px; max-width: 500px; width: 90%; position: relative;">
+      <span id="closeVendorForm" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5rem;">&times;</span>
+      <h3 style="margin-bottom: 1rem;">Vendor Registration</h3>
+      <form id="vendorForm">
+        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <input type="text" name="business" placeholder="Business Name" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <button type="submit" style="padding: 0.8rem 1.5rem; border: none; background: #ed764b; color: white; border-radius: 5px; cursor: pointer; width: 100%;">Submit & Download App</button>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+          <a href="https://yourappdownloadlink.com" target="_blank" style="color: #f28c28; font-weight: bold;">click here to download the app</a> 
+        </p>
       </form>
     </div>
-  </section>
+  </div>
+
+  <!-- Customer Registration Popup -->
+  <div id="customerFormPopup" style="display: none; position: fixed; top: 0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 9999; display: flex;">
+    <div style="background: white; padding: 2rem; border-radius: 10px; max-width: 400px; width: 90%; position: relative;">
+      <span id="closeCustomerForm" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5rem;">&times;</span>
+      <h3 style="margin-bottom: 1rem;">Customer Registration</h3>
+      <form id="customerForm">
+        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius:5px; border:1px solid #ccc;">
+        <button type="submit" style="padding: 0.8rem 1.5rem; border: none; background: #ed764b; color: white; border-radius: 5px; cursor: pointer; width: 100%;">Join Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Popup Functionality -->
+<script>
+  const vendorBtn = document.getElementById('vendorBtn');
+  const vendorPopup = document.getElementById('vendorFormPopup');
+  const closeVendor = document.getElementById('closeVendorForm');
+
+  const customerBtn = document.getElementById('customerBtn');
+  const customerPopup = document.getElementById('customerFormPopup');
+  const closeCustomer = document.getElementById('closeCustomerForm');
+
+  // Vendor Popup
+  vendorBtn.addEventListener('click', () => vendorPopup.style.display = 'flex');
+  closeVendor.addEventListener('click', () => vendorPopup.style.display = 'none');
+  window.addEventListener('click', e => { if(e.target === vendorPopup) vendorPopup.style.display = 'none'; });
+
+  // Customer Popup
+  customerBtn.addEventListener('click', () => customerPopup.style.display = 'flex');
+  closeCustomer.addEventListener('click', () => customerPopup.style.display = 'none');
+  window.addEventListener('click', e => { if(e.target === customerPopup) customerPopup.style.display = 'none'; });
+
+  // Vendor Form Submission
+  document.getElementById('vendorForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you! Your registration is received. Download the app to complete registration.');
+    vendorPopup.style.display = 'none';
+    e.target.reset();
+  });
+
+  // Customer Form Submission
+  document.getElementById('customerForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you for joining our community!');
+    customerPopup.style.display = 'none';
+    e.target.reset();
+  });
+</script>
+
 
   <!-- Contact Section -->
   <section id="contact" class="featured" style="background: white">
