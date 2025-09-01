@@ -231,6 +231,70 @@
   animation: fadeUp 3.5s ease forwards;
 }
 
+/* Registration Cards Styles */
+.registration-cards .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.registration-cards .card {
+    flex: 0 1 calc(50% - 1rem);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.2),
+        inset 0 0 80px rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.registration-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 12px 40px 0 rgba(31, 38, 135, 0.25),
+        inset 0 0 80px rgba(255, 255, 255, 0.2);
+}
+
+.registration-cards button {
+    background-color: #000;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.registration-cards button:hover {
+    background: #F9622c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 98, 44, 0.3);
+}
+
+@media (max-width: 768px) {
+    .registration-cards .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .registration-cards .card {
+        flex: 0 1 100%;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
 /* Animations */
 @keyframes slideShow {
   0% { opacity: 0; }
