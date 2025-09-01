@@ -1,0 +1,240 @@
+/* Base responsive rules */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Container for content */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    height: 70px; /* Fixed height for consistency */
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Contact form responsive styles */
+.contact-section {
+    padding: 2rem;
+    margin-top: 60px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Add new overlay style */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.mobile-overlay.active {
+    display: block;
+}
+
+/* Media Queries */
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Navigation Mobile Styles */
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .nav-content {
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* App download buttons mobile adjustment */
+    .app-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Contact Section Mobile Styles */
+    .about-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    #contact .about-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    #contact form {
+        width: 100%;
+    }
+
+    #contact form > div {
+        grid-template-columns: 1fr !important;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    /* Adjust container padding */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Form inputs mobile adjustment */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100% !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    #contact .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+}

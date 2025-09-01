@@ -302,3 +302,4 @@ if (playButton) {
   });
 }
 // Simple image slider for all image boxes
+

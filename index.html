@@ -13,16 +13,248 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="styles/styles.css" />
   <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/second.css">
+  <link rel="stylesheet" href="styles/second.css">
+  <style>
+    /* Responsive Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    /* Responsive Images & Videos */
+    img,
+    video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Remove unwanted horizontal scroll */
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Responsive Navbar */
+    nav {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.4rem 1rem;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #F9622c;
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        max-width: 100vw;
+        padding: 0 0.5rem;
+      }
+
+      .about-us .container,
+      .featured .container,
+      .categories .container,
+      .about .container,
+      .testimonials .container,
+      .registration-cards .container,
+      .featured .container,
+      .footer .container {
+        padding: 0 0.5rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+        padding: 0.4rem 0.5rem;
+      }
+
+      .navbar-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .navbar-hamburger {
+        display: block;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .nav-flags {
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-us .container,
+      .featured .container,
+      .categories .container,
+      .about .container,
+      .testimonials .container,
+      .registration-cards .container,
+      .footer .container {
+        padding: 0 0.3rem !important;
+      }
+
+      .about-us [style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .about-content {
+        flex-direction: column !important;
+        display: flex !important;
+        gap: 2rem !important;
+      }
+
+      .product-grid {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+      }
+
+      .product-card {
+        margin: 0 auto !important;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .registration-cards .container {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+      }
+
+      .registration-cards .card {
+        margin: 0 auto !important;
+      }
+
+      .testimonial-grid {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+
+      .about-content[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+
+    /* Ensure no content is cut off */
+    section,
+    footer {
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+
+    /* Hamburger icon animation (optional) */
+    .navbar-hamburger:focus {
+      outline: none;
+    }
+
+    /* Hero Section Styles */
+    .hero-content {
+      /* Desktop default */
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .app-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .hero-content {
+        text-align: center !important;
+        max-width: 100vw !important;
+        padding: 1.5rem 0.5rem !important;
+        margin: 0 auto !important;
+      }
+
+      .hero-content h1,
+      .hero-content p {
+        word-break: break-word;
+        font-size: 1.3rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .app-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.7rem !important;
+        margin-top: 1.2rem !important;
+        width: 100% !important;
+      }
+
+      .app-btn {
+        width: 90vw !important;
+        max-width: 320px !important;
+        justify-content: center !important;
+      }
+    }
+  </style>
 
 </head>
 
 <body>
   <style>
-  body {
-    font-family: Calibri, Arial, sans-serif !important;
-  }
-</style>
+    body {
+      font-family: Calibri, Arial, sans-serif !important;
+    }
+  </style>
 
   <!-- Loading Overlay -->
   <div class="loading-overlay" id="loadingOverlay">
@@ -30,155 +262,104 @@
   </div>
 
   <header>
-    <nav style="
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.4rem 1rem;  /* Reduced height */
-  background: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-">
+    <nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.4rem 1rem; background: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
       <!-- Left: Logo + Name -->
       <div style="display: flex; align-items: center; gap: 0.6rem;">
-        <img src="/images/logo.png" alt="Logo" style="height: 45px; width: auto;"> <!-- Smaller logo -->
+        <img src="/images/logo.png" alt="Logo" style="height: 45px; width: auto;">
         <a href="#hero" style="font-weight: 700; font-size: 1rem; text-decoration: none; color: inherit;">
           Xtreative Market
         </a>
-
       </div>
-
+      <!-- Hamburger Menu Button (mobile only) -->
+      <button class="navbar-hamburger" id="navbarHamburger" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <!-- Center: Navigation + Flags -->
-      <ul style="
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  ">
+      <ul class="navbar-links" id="navbarLinks">
         <li><a href="#about" style="color: #4B5563; font-weight: 600; text-decoration: none;">About</a></li>
         <li><a href="#products" style="color: #4B5563; font-weight: 600; text-decoration: none;">Categories</a></li>
         <li><a href="#categories" style="color: #4B5563; font-weight: 600; text-decoration: none;">Collection</a></li>
         <li><a href="#heritage" style="color: #4B5563; font-weight: 600; text-decoration: none;">Heritage</a></li>
         <li><a href="#contact" style="color: #4B5563; font-weight: 600; text-decoration: none;">Contact</a></li>
-
         <!-- Flags -->
-        <li style="display: flex; gap: 0.5rem;">
-          <span style="
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        background: #FFF7ED;
-        color: #F9622c;
-        border: 2px solid #FF8C00;
-      ">
-            <img src="https://flagcdn.com/w40/ug.png" alt="Uganda Flag"
-              style="width: 16px; height: auto; border-radius: 3px;">
+        <li class="nav-flags" style="display: flex; gap: 0.5rem;">
+          <span style="display: flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: #FFF7ED; color: #F9622c; border: 2px solid #FF8C00;">
+            <img src="https://flagcdn.com/w40/ug.png" alt="Uganda Flag" style="width: 16px; height: auto; border-radius: 3px;">
             UG
           </span>
-
-          <span style="
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        background: #FFF7ED;
-        color: #F9622c;
-        border: 2px solid #F9622c;
-      ">
-            <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda Flag"
-              style="width: 16px; height: auto; border-radius: 3px;">
-         RW
+          <span style="display: flex; align-items: center; gap: 0.3rem; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: #FFF7ED; color: #F9622c; border: 2px solid #F9622c;">
+            <img src="https://flagcdn.com/w40/rw.png" alt="Rwanda Flag" style="width: 16px; height: auto; border-radius: 3px;">
+            RW
           </span>
         </li>
       </ul>
-
       <!-- Right: Download Button -->
-      <div>
-        <a href="#download" style="
-      padding: 0.5rem 1rem;
-      background-color: #F9622c;
-      border-radius: 8px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-    ">
+      <div class="nav-right">
+        <a href="#download" style="padding: 0.5rem 1rem; background-color: #F9622c; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
           DOWNLOAD APP
         </a>
       </div>
     </nav>
-
   </header>
- <!-- Hero Section with Video Background -->
-<section id="hero" class="xt-hero">
-  <!-- Background Image Slider -->
-  <div class="hero-slider">
-    <div class="hero-slide slide1">
-      <img src="https://i.pinimg.com/1200x/85/a2/ca/85a2cad15b6ddf384a2258a772b663d7.jpg" alt="African Art 0" class="hero-img">
+  <!-- Hero Section with Video Background -->
+  <section id="hero" class="xt-hero">
+    <!-- Background Image Slider -->
+    <div class="hero-slider">
+      <div class="hero-slide slide1">
+        <img src="https://i.pinimg.com/1200x/85/a2/ca/85a2cad15b6ddf384a2258a772b663d7.jpg" alt="African Art 0" class="hero-img">
+      </div>
+      <div class="hero-slide slide2">
+        <img src="https://i.pinimg.com/1200x/1f/64/32/1f6432f0328bbb6d604952a62eaf4ad0.jpg" alt="African Art 1" class="hero-img">
+      </div>
+      <div class="hero-slide slide3">
+        <img src="https://i.pinimg.com/1200x/20/a5/66/20a56673b1d6e0ac73501a96c89cf766.jpg" alt="African Art 2" class="hero-img">
+      </div>
+      <div class="hero-slide slide4">
+        <img src="https://i.pinimg.com/1200x/62/7a/84/627a84d7555cb7058c8aefa6d23a1495.jpg" alt="African Art 3" class="hero-img">
+      </div>
+      <div class="hero-slide slide5">
+        <img src="https://i.pinimg.com/1200x/97/08/54/9708548f877e560c3494c54f2c8e7fdc.jpg" alt="African Art 4" class="hero-img">
+      </div>
     </div>
-    <div class="hero-slide slide2">
-      <img src="https://i.pinimg.com/1200x/1f/64/32/1f6432f0328bbb6d604952a62eaf4ad0.jpg" alt="African Art 1" class="hero-img">
-    </div>
-    <div class="hero-slide slide3">
-      <img src="https://i.pinimg.com/1200x/20/a5/66/20a56673b1d6e0ac73501a96c89cf766.jpg" alt="African Art 2" class="hero-img">
-    </div>
-    <div class="hero-slide slide4">
-      <img src="https://i.pinimg.com/1200x/62/7a/84/627a84d7555cb7058c8aefa6d23a1495.jpg" alt="African Art 3" class="hero-img">
-    </div>
-    <div class="hero-slide slide5">
-      <img src="https://i.pinimg.com/1200x/97/08/54/9708548f877e560c3494c54f2c8e7fdc.jpg" alt="African Art 4" class="hero-img">
-    </div>
-  </div>
 
-  <!-- Overlay -->
-  <div class="hero-overlay"></div>
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
 
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <h1 class="animate-title">Bringing the East African culture<br />Close to You</h1>
-    <p class="animate-text">Explore the wide range of modern African art at your convenience.</p>
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="animate-title">Bringing the East African culture<br />Close to You</h1>
+      <p class="animate-text">Explore the wide range of modern African art at your convenience.</p>
 
-    <!-- App Store Buttons -->
-    <div class="app-buttons animate-btns">
-      <a href="https://play.google.com/store" class="app-btn" target="_blank" rel="noopener">
-        <i class="fab fa-google-play"></i>
-        <div class="app-btn-text">
-          <small>Get it on</small>
-          <strong>Google Play</strong>
-        </div>
-      </a>
-      <a href="https://apps.apple.com" class="app-btn" target="_blank" rel="noopener">
-        <i class="fab fa-apple"></i>
-        <div class="app-btn-text">
-          <small>Download on the</small>
-          <strong>App Store</strong>
-        </div>
-      </a>
+      <!-- App Store Buttons -->
+      <div class="app-buttons animate-btns">
+        <a href="https://play.google.com/store" class="app-btn" target="_blank" rel="noopener">
+          <i class="fab fa-google-play"></i>
+          <div class="app-btn-text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+        <a href="https://apps.apple.com" class="app-btn" target="_blank" rel="noopener">
+          <i class="fab fa-apple"></i>
+          <div class="app-btn-text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- About Us Section -->
   <section id="about" class="about-us" style="padding: 5rem 0; background: #f8f9fa;">
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-        
+
         <!-- Left: Image -->
         <div style="position: relative;">
-          <img src="/images/bettermockup.png" 
-               alt="African artisan working on traditional crafts" 
+          <img src="/images/bettermockup.png"
+               alt="African artisan working on traditional crafts"
                
                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
           <div style="
@@ -771,6 +952,25 @@
   </button>
 
   <script src="scripts/script.js"></script>
+  <script>
+    // Hamburger menu toggle
+    const navbarHamburger = document.getElementById('navbarHamburger');
+    const navbarLinks = document.getElementById('navbarLinks');
+    navbarHamburger.addEventListener('click', function() {
+      navbarLinks.classList.toggle('active');
+    });
+    // Optional: Close menu when clicking outside or on a link (mobile UX)
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        if (!navbarLinks.contains(e.target) && !navbarHamburger.contains(e.target)) {
+          navbarLinks.classList.remove('active');
+        }
+        if (navbarLinks.contains(e.target) && e.target.tagName === 'A') {
+          navbarLinks.classList.remove('active');
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
