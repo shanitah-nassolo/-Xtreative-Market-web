@@ -183,6 +183,42 @@
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
       }
+
+      /* Contact Form Styles */
+      #contact-form {
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+      }
+
+      #contact-form input,
+      #contact-form textarea {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 1rem !important;
+      }
+
+      #contact-form button {
+        width: 100% !important;
+        font-size: 1rem !important;
+      }
+
+      /* Remove grid for name/email fields */
+      #contact-form > div[style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+
+      /* Center the form status message */
+      #form-status {
+        text-align: center !important;
+      }
     }
 
     /* Ensure no content is cut off */
