@@ -236,20 +236,41 @@
 
     /* Hero Section Styles */
     .hero-content {
-      /* Desktop default */
       position: relative;
       z-index: 2;
-      text-align: left;
-      max-width: 600px;
+      text-align: center;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
 
-    .app-buttons {
+    .hero-text-container {
+      min-height: 300px;
       display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .typing-text {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1rem;
+      min-height: 4.5rem;
+      white-space: pre-wrap;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        border-color: transparent
+      }
+
+      50% {
+        border-color: #F9622c
+      }
     }
 
     @media (max-width: 600px) {
@@ -283,7 +304,8 @@
     }
 
     /* Vendor & Customer Buttons */
-    #vendorBtn, #customerBtn {
+    #vendorBtn,
+    #customerBtn {
       background-color: #F9622c !important;
       color: white !important;
       padding: 0.5rem 1rem !important;
@@ -297,7 +319,8 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    #vendorBtn:hover, #customerBtn:hover {
+    #vendorBtn:hover,
+    #customerBtn:hover {
       background-color: #ed764b !important;
       color: white !important;
     }
@@ -308,7 +331,7 @@
       color: white !important;
       border-radius: 8px !important;
       padding: 2rem 1rem !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     }
 
     /* Vendor Registration Popup */
@@ -325,7 +348,7 @@
       z-index: 9999;
     }
 
-    #vendorFormPopup > div {
+    #vendorFormPopup>div {
       background: white;
       padding: 2rem;
       border-radius: 10px;
@@ -348,13 +371,27 @@
       z-index: 9999;
     }
 
-    #customerFormPopup > div {
+    #customerFormPopup>div {
       background: white;
       padding: 2rem;
       border-radius: 10px;
       max-width: 400px;
       width: 90%;
       position: relative;
+    }
+
+    /* Ensure sections have proper spacing */
+    section {
+      scroll-margin-top: 80px;
+      /* Adjust this value to match the height of your fixed navbar */
+    }
+
+    /* Optional: Remove unnecessary space above/below sections */
+    section {
+      padding-top: 2rem;
+      /* Adjust as needed */
+      padding-bottom: 2rem;
+      /* Adjust as needed */
     }
   </style>
 
@@ -440,11 +477,12 @@
 
     <!-- Hero Content -->
     <div class="hero-content">
-      <h1 class="animate-title">Bringing the East African culture<br />Close to You</h1>
-      <p class="animate-text">Explore the wide range of modern African art at your convenience.</p>
+      <div class="hero-text-container">
+        <div id="typing-text" class="typing-text"></div>
+      </div>
 
       <!-- App Store Buttons -->
-         <div class="app-buttons animate-btns">
+      <div class="app-buttons animate-btns">
         <a href="https://play.google.com/store" class="app-btn" target="_blank" rel="noopener">
           <i class="fab fa-google-play"></i>
           <div class="app-btn-text">
@@ -460,69 +498,80 @@
           </div>
         </a>
       </div>
-    
+
     </div>
   </section>
 
 
   <!-- About Us Section -->
-  <section id="about" class="about-us" style="padding: 5rem 0; background: #f8f9fa;">
+  <section id="about" class="about-us" style="padding: 3rem 0; background: #f8f9fa;">
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
 
         <!-- Left: Image -->
-        <div style="position: relative;">
+        <div style="
+          position: relative; 
+          width: 100%;
+          height: 0;
+          padding-bottom: 75%;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        ">
           <img src="/images/bettermockup.png"
-               alt="African artisan working on traditional crafts"
-               
-                style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            alt="African artisan working on traditional crafts"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              background-color: #f8f9fa;
+            ">
           <div style="
             position: absolute;
-            bottom: -20px;
-            right: -20px;
+            bottom: 15px;
+            right: 15px;
             background: #F9622c;
             color: white;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 8px;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(249, 98, 44, 0.3);
+            box-shadow: 0 4px 12px rgba(249, 98, 44, 0.3);
+            z-index: 1;
           ">
-            <div style="font-size: 1.5rem; line-height: 1;">2025</div>
-            <div style="font-size: 0.75rem; opacity: 0.9;">Founded</div>
+            <div style="font-size: 1.2rem; line-height: 1;">2025</div>
+            <div style="font-size: 0.7rem; opacity: 0.9;">Founded</div>
           </div>
         </div>
 
         <!-- Right: Content -->
- <div>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
           <div style="
             display: inline-block;
             background: #FFF7ED;
             color: #F9622c;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            width: fit-content;
             border: 2px solid #F9622c;
           ">
             About Xtreative Market
           </div>
           
-        <p>
-          At Xtreative Market, we celebrate the beauty of African craftsmanship by connecting 
-        local artisans with global markets. Our platform highlights authentic handmade pieces 
-        from Rwanda and Uganda, fostering cultural pride while supporting sustainable livelihoods.
-        </p>
-          
-       
-     
-
-        
-            
-           
-              
-
-         
+          <p style="
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4B5563;
+            margin: 0;
+          ">
+            At Xtreative Market, we celebrate the beauty of African craftsmanship by connecting 
+            local artisans with global markets. Our platform highlights authentic handmade pieces 
+            from Rwanda and Uganda, fostering cultural pride while supporting sustainable livelihoods.
+          </p>
         </div>
       </div>
     </div>
@@ -1061,10 +1110,9 @@
                   style="color: #F9622C;"></i></a>
               <a href="https://x.com/Xtreativemarket"><i class="fab fa-twitter" style="color: #F9622C;"></i></a>
               <a href="https://www.youtube.com/@xtreativemarket"><i class="fab fa-youtube"
-                  style="color: #F9622c;"></i></a>
-              <a href="https://www.tiktok.com/@xtreativemarket"><i class="fab fa-tiktok" style="color: #F9622c;"></i></a>
-              <a href="https://www.linkedin.com/company/xtreative-market/"><i class="fab fa-linkedin"
                   style="color: #F9622C;"></i></a>
+              <a href="https://www.tiktok.com/@xtreativemarket"><i class="fab fa-tiktok" style="color: #F9622C;"></i></a>
+              <a href="https://www.linkedin.com/company/xtreative-market/"><i class="fab fa-linkedin" style="color: #F9622C;"></i></a>
             </div>
           </div>
 
@@ -1179,6 +1227,72 @@
         }
       }
     });
+
+    // Smooth scrolling for navbar links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Offset for fixed navbar height
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const texts = [
+      "Bringing the East African culture Close to You\n",
+      "Explore the wide range of modern African art at your convenience.\n",
+      "Download the app today and enjoy trading in African creativity!"
+    ];
+    
+    const typingText = document.getElementById('typing-text');
+    let currentTextIndex = 0;
+    let currentChar = 0;
+    let isDeleting = false;
+    const typingDelay = 100; // Delay between each character
+    const deleteDelay = 50;  // Delay when deleting
+    const pauseDelay = 2000; // Pause when text is complete
+
+    function typeText() {
+      const currentFullText = texts[currentTextIndex];
+      
+      if (isDeleting) {
+        // Deleting text
+        typingText.textContent = currentFullText.substring(0, currentChar);
+        currentChar--;
+        
+        if (currentChar < 0) {
+          isDeleting = false;
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          setTimeout(typeText, typingDelay);
+          return;
+        }
+        
+        setTimeout(typeText, deleteDelay);
+      } else {
+        // Typing text
+        typingText.textContent = currentFullText.substring(0, currentChar);
+        currentChar++;
+        
+        if (currentChar > currentFullText.length) {
+          isDeleting = true;
+          setTimeout(typeText, pauseDelay);
+          return;
+        }
+        
+        setTimeout(typeText, typingDelay);
+      }
+    }
+
+    // Start the typing animation
+    typeText();
   </script>
 </body>
 
