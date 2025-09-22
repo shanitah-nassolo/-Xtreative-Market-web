@@ -303,3 +303,39 @@ if (playButton) {
 }
 // Simple image slider for all image boxes
 
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const dots = document.querySelectorAll(".dot");
+
+let current = 0;
+
+function updateCarousel(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+nextBtn.addEventListener("click", () => {
+  current = (current + 1) % slides.length;
+  updateCarousel(current);
+});
+
+prevBtn.addEventListener("click", () => {
+  current = (current - 1 + slides.length) % slides.length;
+  updateCarousel(current);
+});
+
+dots.forEach((dot, idx) =>
+  dot.addEventListener("click", () => {
+    current = idx;
+    updateCarousel(current);
+  })
+);
+
+/* Optional: Auto-play */
+setInterval(() => {
+  current = (current + 1) % slides.length;
+  updateCarousel(current);
+}, 5000);
